@@ -6,16 +6,19 @@ function antiAntiCheat()
 end
 
 function loadModule(id)
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/KlipsScripts/BaconHub/refs/heads/main/".. id .. ".lua", true))()
+	pcall(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/KlipsScripts/BaconHub/refs/heads/main/".. id .. ".lua", true))()
+	end)
 end
 
 function loadAllModules() 
 	local games = {"mm2", "jailbreak", "prisonlife", "crewmates"}
+	
 	loadModule("main")
+	wait(1)
 	for _, gameName in pairs(games) do
 		loadModule(gameName)
 	end
-
 end
 
 antiAntiCheat()
