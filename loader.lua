@@ -11,12 +11,11 @@ end
 
 function loadAllModules() 
 	local games = {"mm2", "jailbreak", "prisonlife", "crewmates"}
-	
 	loadModule("main")
-	wait(1)
-	for _, game in pairs(games) do
-		loadModule(game)
+	for _, gameName in pairs(games) do
+		loadModule(gameName)
 	end
+
 end
 
 antiAntiCheat()
