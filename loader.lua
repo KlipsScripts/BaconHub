@@ -15,7 +15,7 @@ end
 
 function loadAllModules()
 	print("called")
-	local games = {"mm2", "jailbreak", "prisonlife", "crewmates"}
+	local games = {"mm2", "jailbreak", "prisonlife", "crewmates", "apoc2"}
 	
 	loadModule("main")
 	wait(1)
