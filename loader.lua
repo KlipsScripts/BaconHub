@@ -1,6 +1,8 @@
 function antiAntiCheat()
 	if (game.PlaceId == 93911318070665) then -- apoc 2
+		if (game.Players.LocalPlayer.PlayerGui:FindFirstChild("Rules")) then
 		game.Players.LocalPlayer.PlayerGui:WaitForChild("Rules"):Destroy()
+		end
 	end
 	print("anti anti cheat finished running")
 end
@@ -11,7 +13,8 @@ function loadModule(id)
 	end)
 end
 
-function loadAllModules() 
+function loadAllModules()
+	print("called")
 	local games = {"mm2", "jailbreak", "prisonlife", "crewmates"}
 	
 	loadModule("main")
