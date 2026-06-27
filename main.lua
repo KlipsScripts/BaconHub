@@ -1049,6 +1049,19 @@ do -- baconHubMain.baconHubMain.mainFunctions
 			end
 		end
 		
+		function main.createModelEsp(enabled, model)
+			if (enabled) then
+				local esp = Instance.new("Highlight")
+				esp.FillTransparency = 1
+				esp.Parent = model
+			else
+				if (model:FindFirstChild("Highlight")) then
+					model:WaitForChild("Highlight"):Destroy()
+				end
+			end
+		end
+		
+		
 		function main.esp(enabled, persist, includeSelf, func)
 			local hex
 			if enabled == true then
@@ -1145,6 +1158,19 @@ do -- baconHubMain.baconHubMain.mainFunctions
 		end
 	end
 	
+	function main.createModelEsp(enabled, model)
+		if (enabled) then
+			local esp = Instance.new("Highlight")
+			esp.FillTransparency = 1
+			esp.Parent = model
+		else
+			if (model:FindFirstChild("Highlight")) then
+				model:WaitForChild("Highlight"):Destroy()
+			end
+		end
+	end
+	
+	
 	function main.esp(enabled, persist, includeSelf, func)
 		local hex
 		if enabled == true then
@@ -1216,7 +1242,7 @@ end
 
 -- Scripts:
 
-local function SVCYGA_fake_script() -- baconHubMain.Frame_2.opener 
+local function OLTZH_fake_script() -- baconHubMain.Frame_2.opener 
 	local script = Instance.new('LocalScript', baconHubMain.Frame_2)
 	local req = require
 	local require = function(obj)
@@ -1238,8 +1264,8 @@ local function SVCYGA_fake_script() -- baconHubMain.Frame_2.opener
 		end
 	end
 end
-coroutine.wrap(SVCYGA_fake_script)()
-local function PRDYJI_fake_script() -- baconHubMain.win10taskbar.LocalScript 
+coroutine.wrap(OLTZH_fake_script)()
+local function AGGGKT_fake_script() -- baconHubMain.win10taskbar.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1257,8 +1283,8 @@ local function PRDYJI_fake_script() -- baconHubMain.win10taskbar.LocalScript
 		layer.Name = "windows"
 	end
 end
-coroutine.wrap(PRDYJI_fake_script)()
-local function SJYTGQK_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
+coroutine.wrap(AGGGKT_fake_script)()
+local function ZDUB_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.windowsHomeButton)
 	local req = require
 	local require = function(obj)
@@ -1283,8 +1309,8 @@ local function SJYTGQK_fake_script() -- baconHubMain.windowsHomeButton.LocalScri
 	
 	
 end
-coroutine.wrap(SJYTGQK_fake_script)()
-local function ZIZF_fake_script() -- baconHubMain.win10taskbar.draggable 
+coroutine.wrap(ZDUB_fake_script)()
+local function RTHPOQE_fake_script() -- baconHubMain.win10taskbar.draggable 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1382,8 +1408,8 @@ local function ZIZF_fake_script() -- baconHubMain.win10taskbar.draggable
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(ZIZF_fake_script)()
-local function KLRJQ_fake_script() -- baconHubMain.win10.LocalScript 
+coroutine.wrap(RTHPOQE_fake_script)()
+local function OLWON_fake_script() -- baconHubMain.win10.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10)
 	local req = require
 	local require = function(obj)
@@ -1401,8 +1427,8 @@ local function KLRJQ_fake_script() -- baconHubMain.win10.LocalScript
 	layer.Name = "layer"
 	end
 end
-coroutine.wrap(KLRJQ_fake_script)()
-local function RUGPQDD_fake_script() -- baconHubMain.settings_2.LocalScript 
+coroutine.wrap(OLWON_fake_script)()
+local function KDYA_fake_script() -- baconHubMain.settings_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.settings_2)
 	local req = require
 	local require = function(obj)
@@ -1500,8 +1526,8 @@ local function RUGPQDD_fake_script() -- baconHubMain.settings_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(RUGPQDD_fake_script)()
-local function SXOTKCD_fake_script() -- baconHubMain.close.LocalScript 
+coroutine.wrap(KDYA_fake_script)()
+local function FBRWSFA_fake_script() -- baconHubMain.close.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close)
 	local req = require
 	local require = function(obj)
@@ -1527,8 +1553,8 @@ local function SXOTKCD_fake_script() -- baconHubMain.close.LocalScript
 	
 	
 end
-coroutine.wrap(SXOTKCD_fake_script)()
-local function TULKTV_fake_script() -- baconHubMain.minimize.LocalScript 
+coroutine.wrap(FBRWSFA_fake_script)()
+local function RESY_fake_script() -- baconHubMain.minimize.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize)
 	local req = require
 	local require = function(obj)
@@ -1563,8 +1589,8 @@ local function TULKTV_fake_script() -- baconHubMain.minimize.LocalScript
 	
 	
 end
-coroutine.wrap(TULKTV_fake_script)()
-local function NQERS_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
+coroutine.wrap(RESY_fake_script)()
+local function XOCR_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.walkspeedButton)
 	local req = require
 	local require = function(obj)
@@ -1580,8 +1606,8 @@ local function NQERS_fake_script() -- baconHubMain.walkspeedButton.LocalScript
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.walkspeedValue.Text
 	end)
 end
-coroutine.wrap(NQERS_fake_script)()
-local function ICUFWJV_fake_script() -- baconHubMain.spinButton.LocalScript 
+coroutine.wrap(XOCR_fake_script)()
+local function DHOLUK_fake_script() -- baconHubMain.spinButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.spinButton)
 	local req = require
 	local require = function(obj)
@@ -1641,8 +1667,8 @@ local function ICUFWJV_fake_script() -- baconHubMain.spinButton.LocalScript
 		
 	end)
 end
-coroutine.wrap(ICUFWJV_fake_script)()
-local function ESIFZFW_fake_script() -- baconHubMain.flyButton.LocalScript 
+coroutine.wrap(DHOLUK_fake_script)()
+local function UEQK_fake_script() -- baconHubMain.flyButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.flyButton)
 	local req = require
 	local require = function(obj)
@@ -1772,8 +1798,8 @@ local function ESIFZFW_fake_script() -- baconHubMain.flyButton.LocalScript
 	end)
 	
 end
-coroutine.wrap(ESIFZFW_fake_script)()
-local function ZMRGVB_fake_script() -- baconHubMain.espScript.genericESP 
+coroutine.wrap(UEQK_fake_script)()
+local function ZYFO_fake_script() -- baconHubMain.espScript.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.espScript)
 	local req = require
 	local require = function(obj)
@@ -1821,8 +1847,8 @@ local function ZMRGVB_fake_script() -- baconHubMain.espScript.genericESP
 	end
 	
 end
-coroutine.wrap(ZMRGVB_fake_script)()
-local function HLCUB_fake_script() -- baconHubMain.fullbright.LocalScript 
+coroutine.wrap(ZYFO_fake_script)()
+local function BJRSUBB_fake_script() -- baconHubMain.fullbright.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.fullbright)
 	local req = require
 	local require = function(obj)
@@ -1863,8 +1889,8 @@ local function HLCUB_fake_script() -- baconHubMain.fullbright.LocalScript
 		end
 	end)
 end
-coroutine.wrap(HLCUB_fake_script)()
-local function EBFTJO_fake_script() -- baconHubMain.aimbot.LocalScript 
+coroutine.wrap(BJRSUBB_fake_script)()
+local function WDTVMG_fake_script() -- baconHubMain.aimbot.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.aimbot)
 	local req = require
 	local require = function(obj)
@@ -1938,8 +1964,8 @@ local function EBFTJO_fake_script() -- baconHubMain.aimbot.LocalScript
 		end
 	end)
 end
-coroutine.wrap(EBFTJO_fake_script)()
-local function NBOGOY_fake_script() -- baconHubMain.btools.LocalScript 
+coroutine.wrap(WDTVMG_fake_script)()
+local function CYQHX_fake_script() -- baconHubMain.btools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.btools)
 	local req = require
 	local require = function(obj)
@@ -2001,8 +2027,8 @@ local function NBOGOY_fake_script() -- baconHubMain.btools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(NBOGOY_fake_script)()
-local function ZLBUWY_fake_script() -- baconHubMain.undoBtools.LocalScript 
+coroutine.wrap(CYQHX_fake_script)()
+local function UXMEHU_fake_script() -- baconHubMain.undoBtools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.undoBtools)
 	local req = require
 	local require = function(obj)
@@ -2025,8 +2051,8 @@ local function ZLBUWY_fake_script() -- baconHubMain.undoBtools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(ZLBUWY_fake_script)()
-local function QXSEAYP_fake_script() -- baconHubMain.noclip.LocalScript 
+coroutine.wrap(UXMEHU_fake_script)()
+local function VIXK_fake_script() -- baconHubMain.noclip.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.noclip)
 	local req = require
 	local require = function(obj)
@@ -2071,8 +2097,8 @@ local function QXSEAYP_fake_script() -- baconHubMain.noclip.LocalScript
 		end
 	end
 end
-coroutine.wrap(QXSEAYP_fake_script)()
-local function UKYHKH_fake_script() -- baconHubMain.closeMenu.genericESP 
+coroutine.wrap(VIXK_fake_script)()
+local function RPSOJE_fake_script() -- baconHubMain.closeMenu.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.closeMenu)
 	local req = require
 	local require = function(obj)
@@ -2087,8 +2113,8 @@ local function UKYHKH_fake_script() -- baconHubMain.closeMenu.genericESP
 		game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain"):Destroy()
 	end)
 end
-coroutine.wrap(UKYHKH_fake_script)()
-local function POSWZIR_fake_script() -- baconHubMain.TextLabel.LocalScript 
+coroutine.wrap(RPSOJE_fake_script)()
+local function WKHGU_fake_script() -- baconHubMain.TextLabel.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.TextLabel)
 	local req = require
 	local require = function(obj)
@@ -2103,8 +2129,8 @@ local function POSWZIR_fake_script() -- baconHubMain.TextLabel.LocalScript
 	
 	script.Parent.Text = name
 end
-coroutine.wrap(POSWZIR_fake_script)()
-local function AQBXB_fake_script() -- baconHubMain.notepad_3.LocalScript 
+coroutine.wrap(WKHGU_fake_script)()
+local function VGDXT_fake_script() -- baconHubMain.notepad_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.notepad_3)
 	local req = require
 	local require = function(obj)
@@ -2201,8 +2227,8 @@ local function AQBXB_fake_script() -- baconHubMain.notepad_3.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(AQBXB_fake_script)()
-local function QIYA_fake_script() -- baconHubMain.close_2.LocalScript 
+coroutine.wrap(VGDXT_fake_script)()
+local function CENJKOA_fake_script() -- baconHubMain.close_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_2)
 	local req = require
 	local require = function(obj)
@@ -2228,8 +2254,8 @@ local function QIYA_fake_script() -- baconHubMain.close_2.LocalScript
 	
 	
 end
-coroutine.wrap(QIYA_fake_script)()
-local function JOOL_fake_script() -- baconHubMain.minimize_2.script 
+coroutine.wrap(CENJKOA_fake_script)()
+local function RISUHS_fake_script() -- baconHubMain.minimize_2.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_2)
 	local req = require
 	local require = function(obj)
@@ -2264,8 +2290,8 @@ local function JOOL_fake_script() -- baconHubMain.minimize_2.script
 	
 	
 end
-coroutine.wrap(JOOL_fake_script)()
-local function TIIE_fake_script() -- baconHubMain.music_2.LocalScript 
+coroutine.wrap(RISUHS_fake_script)()
+local function SDZU_fake_script() -- baconHubMain.music_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.music_2)
 	local req = require
 	local require = function(obj)
@@ -2363,8 +2389,8 @@ local function TIIE_fake_script() -- baconHubMain.music_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(TIIE_fake_script)()
-local function IXSWSF_fake_script() -- baconHubMain.close_3.LocalScript 
+coroutine.wrap(SDZU_fake_script)()
+local function ZNIB_fake_script() -- baconHubMain.close_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_3)
 	local req = require
 	local require = function(obj)
@@ -2390,8 +2416,8 @@ local function IXSWSF_fake_script() -- baconHubMain.close_3.LocalScript
 	
 	
 end
-coroutine.wrap(IXSWSF_fake_script)()
-local function KSKOV_fake_script() -- baconHubMain.minimize_3.LocalScript 
+coroutine.wrap(ZNIB_fake_script)()
+local function SUEWYT_fake_script() -- baconHubMain.minimize_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_3)
 	local req = require
 	local require = function(obj)
@@ -2426,8 +2452,8 @@ local function KSKOV_fake_script() -- baconHubMain.minimize_3.LocalScript
 	
 	
 end
-coroutine.wrap(KSKOV_fake_script)()
-local function DFTTCXW_fake_script() -- baconHubMain.play.LocalScript 
+coroutine.wrap(SUEWYT_fake_script)()
+local function UQDAW_fake_script() -- baconHubMain.play.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.play)
 	local req = require
 	local require = function(obj)
@@ -2476,8 +2502,8 @@ local function DFTTCXW_fake_script() -- baconHubMain.play.LocalScript
 	end)
 	
 end
-coroutine.wrap(DFTTCXW_fake_script)()
-local function RZFF_fake_script() -- baconHubMain.annoy.LocalScript 
+coroutine.wrap(UQDAW_fake_script)()
+local function PHASVHD_fake_script() -- baconHubMain.annoy.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.annoy)
 	local req = require
 	local require = function(obj)
@@ -2574,8 +2600,8 @@ local function RZFF_fake_script() -- baconHubMain.annoy.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(RZFF_fake_script)()
-local function GREZ_fake_script() -- baconHubMain.close_4.LocalScript 
+coroutine.wrap(PHASVHD_fake_script)()
+local function TFIEH_fake_script() -- baconHubMain.close_4.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_4)
 	local req = require
 	local require = function(obj)
@@ -2601,8 +2627,8 @@ local function GREZ_fake_script() -- baconHubMain.close_4.LocalScript
 	
 	
 end
-coroutine.wrap(GREZ_fake_script)()
-local function OSCDEM_fake_script() -- baconHubMain.minimize_4.script 
+coroutine.wrap(TFIEH_fake_script)()
+local function PYQPSXN_fake_script() -- baconHubMain.minimize_4.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_4)
 	local req = require
 	local require = function(obj)
@@ -2637,8 +2663,8 @@ local function OSCDEM_fake_script() -- baconHubMain.minimize_4.script
 	
 	
 end
-coroutine.wrap(OSCDEM_fake_script)()
-local function SERCQMP_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
+coroutine.wrap(PYQPSXN_fake_script)()
+local function OHAAXJH_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.tpAndSpin)
 	local req = require
 	local require = function(obj)
@@ -2703,8 +2729,8 @@ local function SERCQMP_fake_script() -- baconHubMain.tpAndSpin.LocalScript
 		end
 	end
 end
-coroutine.wrap(SERCQMP_fake_script)()
-local function PNIJ_fake_script() -- baconHubMain.data_2.LocalScript 
+coroutine.wrap(OHAAXJH_fake_script)()
+local function WGSPOE_fake_script() -- baconHubMain.data_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -2802,8 +2828,8 @@ local function PNIJ_fake_script() -- baconHubMain.data_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(PNIJ_fake_script)()
-local function FRTL_fake_script() -- baconHubMain.close_5.LocalScript 
+coroutine.wrap(WGSPOE_fake_script)()
+local function WQIBDF_fake_script() -- baconHubMain.close_5.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_5)
 	local req = require
 	local require = function(obj)
@@ -2829,8 +2855,8 @@ local function FRTL_fake_script() -- baconHubMain.close_5.LocalScript
 	
 	
 end
-coroutine.wrap(FRTL_fake_script)()
-local function YNLZMN_fake_script() -- baconHubMain.minimize_5.LocalScript 
+coroutine.wrap(WQIBDF_fake_script)()
+local function SULGCT_fake_script() -- baconHubMain.minimize_5.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_5)
 	local req = require
 	local require = function(obj)
@@ -2865,8 +2891,8 @@ local function YNLZMN_fake_script() -- baconHubMain.minimize_5.LocalScript
 	
 	
 end
-coroutine.wrap(YNLZMN_fake_script)()
-local function KLMIZAK_fake_script() -- baconHubMain.data_2.main 
+coroutine.wrap(SULGCT_fake_script)()
+local function NJNIKU_fake_script() -- baconHubMain.data_2.main 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -2887,4 +2913,4 @@ local function KLMIZAK_fake_script() -- baconHubMain.data_2.main
 		wait()
 	end
 end
-coroutine.wrap(KLMIZAK_fake_script)()
+coroutine.wrap(NJNIKU_fake_script)()
