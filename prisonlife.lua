@@ -30,7 +30,7 @@ local Gui = {
 --Properties:
 
 Gui.prisonlife.Name = "prisonlife"
-Gui.prisonlife.Parent = game.StarterGui.games
+Gui.prisonlife.Parent = game.StarterGui.baconHubMain
 Gui.prisonlife.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.prisonlife.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.prisonlife.Position = UDim2.new(0.0459862724, 0, 0.202871323, 0)
@@ -267,7 +267,7 @@ Gui.godMode.TextSize = 14.000
 
 -- Scripts:
 
-local function XLCAWGK_fake_script() -- Gui.prisonlife.LocalScript 
+local function YGVW_fake_script() -- Gui.prisonlife.LocalScript 
 	local script = Instance.new('LocalScript', Gui.prisonlife)
 
 	local dragger = {}; 
@@ -313,8 +313,8 @@ local function XLCAWGK_fake_script() -- Gui.prisonlife.LocalScript
 	script.Parent.Active = true
 	script.Parent.Draggable = true
 end
-coroutine.wrap(XLCAWGK_fake_script)()
-local function HFLTA_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(YGVW_fake_script)()
+local function MLOJYD_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -332,8 +332,8 @@ local function HFLTA_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(HFLTA_fake_script)()
-local function UMAXCP_fake_script() -- Gui.minimize.script 
+coroutine.wrap(MLOJYD_fake_script)()
+local function PNHH_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -360,8 +360,8 @@ local function UMAXCP_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(UMAXCP_fake_script)()
-local function IIJMXBE_fake_script() -- Gui.AllGuns.LocalScript 
+coroutine.wrap(PNHH_fake_script)()
+local function OBRK_fake_script() -- Gui.AllGuns.LocalScript 
 	local script = Instance.new('LocalScript', Gui.AllGuns)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -371,8 +371,8 @@ local function IIJMXBE_fake_script() -- Gui.AllGuns.LocalScript
 		end
 	end)
 end
-coroutine.wrap(IIJMXBE_fake_script)()
-local function QJCKM_fake_script() -- Gui.Btools.LocalScript 
+coroutine.wrap(OBRK_fake_script)()
+local function WVRDOQI_fake_script() -- Gui.Btools.LocalScript 
 	local script = Instance.new('LocalScript', Gui.Btools)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -382,8 +382,8 @@ local function QJCKM_fake_script() -- Gui.Btools.LocalScript
 		tool2.BinType = "Hammer"
 	end)
 end
-coroutine.wrap(QJCKM_fake_script)()
-local function SONBLLY_fake_script() -- Gui.InfStamina.LocalScript 
+coroutine.wrap(WVRDOQI_fake_script)()
+local function NKGJ_fake_script() -- Gui.InfStamina.LocalScript 
 	local script = Instance.new('LocalScript', Gui.InfStamina)
 
 	function Click(mouse)
@@ -416,8 +416,8 @@ local function SONBLLY_fake_script() -- Gui.InfStamina.LocalScript
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(SONBLLY_fake_script)()
-local function GDEMMI_fake_script() -- Gui.noClip.LocalScript 
+coroutine.wrap(NKGJ_fake_script)()
+local function TKJA_fake_script() -- Gui.noClip.LocalScript 
 	local script = Instance.new('LocalScript', Gui.noClip)
 
 	function Click(mouse)
@@ -430,8 +430,8 @@ local function GDEMMI_fake_script() -- Gui.noClip.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(GDEMMI_fake_script)()
-local function GHLYZN_fake_script() -- Gui.PoliceRoom.LocalScript 
+coroutine.wrap(TKJA_fake_script)()
+local function UDNB_fake_script() -- Gui.PoliceRoom.LocalScript 
 	local script = Instance.new('LocalScript', Gui.PoliceRoom)
 
 	function Click(mouse)
@@ -441,8 +441,8 @@ local function GHLYZN_fake_script() -- Gui.PoliceRoom.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(GHLYZN_fake_script)()
-local function RLIVKY_fake_script() -- Gui.CrimBase.LocalScript 
+coroutine.wrap(UDNB_fake_script)()
+local function DPDN_fake_script() -- Gui.CrimBase.LocalScript 
 	local script = Instance.new('LocalScript', Gui.CrimBase)
 
 	function Click(mouse)
@@ -451,8 +451,8 @@ local function RLIVKY_fake_script() -- Gui.CrimBase.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(RLIVKY_fake_script)()
-local function GXKU_fake_script() -- Gui.godMode.LocalScript 
+coroutine.wrap(DPDN_fake_script)()
+local function LTWCQX_fake_script() -- Gui.godMode.LocalScript 
 	local script = Instance.new('LocalScript', Gui.godMode)
 
 	function Click(mouse)
@@ -532,8 +532,8 @@ local function GXKU_fake_script() -- Gui.godMode.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(GXKU_fake_script)()
-local function DZFXQIS_fake_script() -- Gui.prisonlife.identifier 
+coroutine.wrap(LTWCQX_fake_script)()
+local function BYNXIKN_fake_script() -- Gui.prisonlife.identifier 
 	local script = Instance.new('LocalScript', Gui.prisonlife)
 
 	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
@@ -543,4 +543,4 @@ local function DZFXQIS_fake_script() -- Gui.prisonlife.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(DZFXQIS_fake_script)()
+coroutine.wrap(BYNXIKN_fake_script)()

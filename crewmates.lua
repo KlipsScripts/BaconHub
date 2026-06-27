@@ -22,7 +22,7 @@ local Gui = {
 --Properties:
 
 Gui.crewmates.Name = "crewmates"
-Gui.crewmates.Parent = game.StarterGui.games
+Gui.crewmates.Parent = game.StarterGui.baconHubMain
 Gui.crewmates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.crewmates.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.crewmates.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -176,7 +176,7 @@ Gui.icon.Image = "http://www.roblox.com/asset/?id=18241466938"
 
 -- Scripts:
 
-local function KFCPZ_fake_script() -- Gui.crewmates.LocalScript 
+local function EGIN_fake_script() -- Gui.crewmates.LocalScript 
 	local script = Instance.new('LocalScript', Gui.crewmates)
 
 	
@@ -266,8 +266,8 @@ local function KFCPZ_fake_script() -- Gui.crewmates.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(KFCPZ_fake_script)()
-local function ARSGWH_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(EGIN_fake_script)()
+local function WLGUJ_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -285,8 +285,8 @@ local function ARSGWH_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(ARSGWH_fake_script)()
-local function TYXU_fake_script() -- Gui.minimize.script 
+coroutine.wrap(WLGUJ_fake_script)()
+local function RKYZMQ_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -313,8 +313,8 @@ local function TYXU_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(TYXU_fake_script)()
-local function OIJINP_fake_script() -- Gui.ESP.crewmatesESP 
+coroutine.wrap(RKYZMQ_fake_script)()
+local function AAEJS_fake_script() -- Gui.ESP.crewmatesESP 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	local main = require(script.Parent.Parent.Parent.mainFunctions)
@@ -372,8 +372,8 @@ local function OIJINP_fake_script() -- Gui.ESP.crewmatesESP
 	end
 	
 end
-coroutine.wrap(OIJINP_fake_script)()
-local function HYWWYQ_fake_script() -- Gui.crewmates.identifier 
+coroutine.wrap(AAEJS_fake_script)()
+local function TYFGZT_fake_script() -- Gui.crewmates.identifier 
 	local script = Instance.new('LocalScript', Gui.crewmates)
 
 	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
@@ -383,4 +383,4 @@ local function HYWWYQ_fake_script() -- Gui.crewmates.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(HYWWYQ_fake_script)()
+coroutine.wrap(TYFGZT_fake_script)()
