@@ -23,7 +23,7 @@ local Gui = {
 --Properties:
 
 Gui.mm2.Name = "mm2"
-Gui.mm2.Parent = game.StarterGui.baconHubMain
+Gui.mm2.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
 Gui.mm2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.mm2.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.mm2.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -189,7 +189,7 @@ Gui.knifeDodge.TextSize = 14.000
 
 -- Scripts:
 
-local function UUTN_fake_script() -- Gui.mm2.LocalScript 
+local function RBDW_fake_script() -- Gui.mm2.LocalScript 
 	local script = Instance.new('LocalScript', Gui.mm2)
 
 	
@@ -279,8 +279,8 @@ local function UUTN_fake_script() -- Gui.mm2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(UUTN_fake_script)()
-local function YKZUS_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(RBDW_fake_script)()
+local function ZXTPU_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -298,8 +298,8 @@ local function YKZUS_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(YKZUS_fake_script)()
-local function XRAC_fake_script() -- Gui.minimize.script 
+coroutine.wrap(ZXTPU_fake_script)()
+local function GSISIQ_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -326,11 +326,18 @@ local function XRAC_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(XRAC_fake_script)()
-local function PHJXQJ_fake_script() -- Gui.ESP.mm2ESP 
+coroutine.wrap(GSISIQ_fake_script)()
+local function JBTRFKO_fake_script() -- Gui.ESP.mm2ESP 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
-	local main = require(script.Parent.Parent.Parent.mainFunctions)
+	--Module Loader
+	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local source = menu:WaitForChild("mainFunctions").Source
+	local module, err = loadstring(source)
+	if not module then
+		error(err)
+	end
+	local main = module()
 	local enabled = false
 	
 	function mm2Colors(name)
@@ -379,8 +386,8 @@ local function PHJXQJ_fake_script() -- Gui.ESP.mm2ESP
 	end
 	
 end
-coroutine.wrap(PHJXQJ_fake_script)()
-local function QTLEV_fake_script() -- Gui.knifeDodge.mm2KnifeDodge 
+coroutine.wrap(JBTRFKO_fake_script)()
+local function NFSPBSF_fake_script() -- Gui.knifeDodge.mm2KnifeDodge 
 	local script = Instance.new('LocalScript', Gui.knifeDodge)
 
 	local enabled = false
@@ -447,15 +454,22 @@ local function QTLEV_fake_script() -- Gui.knifeDodge.mm2KnifeDodge
 	
 	
 end
-coroutine.wrap(QTLEV_fake_script)()
-local function XMZLUCV_fake_script() -- Gui.mm2.identifier 
+coroutine.wrap(NFSPBSF_fake_script)()
+local function NFHSZ_fake_script() -- Gui.mm2.identifier 
 	local script = Instance.new('LocalScript', Gui.mm2)
 
+	--Module Loader
 	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
-	local main = require(menu.mainFunctions)
+	local source = menu:WaitForChild("mainFunctions").Source
+	local module, err = loadstring(source)
+	if not module then
+		error(err)
+	end
+	local main = module()
+	
 	local image = "http://www.roblox.com/asset/?id=18241466938"
 	
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(XMZLUCV_fake_script)()
+coroutine.wrap(NFHSZ_fake_script)()

@@ -21,7 +21,7 @@ local Gui = {
 --Properties:
 
 Gui.jailbreak.Name = "jailbreak"
-Gui.jailbreak.Parent = game.StarterGui.baconHubMain
+Gui.jailbreak.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
 Gui.jailbreak.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.jailbreak.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Gui.jailbreak.Position = UDim2.new(0.250186086, 0, 0.277312994, 0)
@@ -158,7 +158,7 @@ Gui.icon.Image = "http://www.roblox.com/asset/?id=18246230914"
 
 -- Scripts:
 
-local function QQUD_fake_script() -- Gui.jailbreak.LocalScript 
+local function SFNUZ_fake_script() -- Gui.jailbreak.LocalScript 
 	local script = Instance.new('LocalScript', Gui.jailbreak)
 
 	
@@ -248,8 +248,8 @@ local function QQUD_fake_script() -- Gui.jailbreak.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(QQUD_fake_script)()
-local function OCJIQ_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(SFNUZ_fake_script)()
+local function WKNK_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -267,8 +267,8 @@ local function OCJIQ_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(OCJIQ_fake_script)()
-local function QYYRX_fake_script() -- Gui.minimize.script 
+coroutine.wrap(WKNK_fake_script)()
+local function LWGRUFJ_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -295,8 +295,8 @@ local function QYYRX_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(QYYRX_fake_script)()
-local function HZAS_fake_script() -- Gui.carSuspension.LocalScript 
+coroutine.wrap(LWGRUFJ_fake_script)()
+local function WCBPQO_fake_script() -- Gui.carSuspension.LocalScript 
 	local script = Instance.new('LocalScript', Gui.carSuspension)
 
 	
@@ -321,15 +321,22 @@ local function HZAS_fake_script() -- Gui.carSuspension.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(HZAS_fake_script)()
-local function SFGTQ_fake_script() -- Gui.jailbreak.identifier 
+coroutine.wrap(WCBPQO_fake_script)()
+local function AQSLX_fake_script() -- Gui.jailbreak.identifier 
 	local script = Instance.new('LocalScript', Gui.jailbreak)
 
+	--Module Loader
 	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
-	local main = require(menu.mainFunctions)
+	local source = menu:WaitForChild("mainFunctions").Source
+	local module, err = loadstring(source)
+	if not module then
+		error(err)
+	end
+	local main = module()
+	
 	local image = "http://www.roblox.com/asset/?id=18246230914"
 	
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(SFGTQ_fake_script)()
+coroutine.wrap(AQSLX_fake_script)()
