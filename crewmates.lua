@@ -1,4 +1,14 @@
-
+local guiEmbedLocation = nil
+	if (game:GetService("CoreGui"):FindFirstChild("runMode")) then
+		if (game:GetService("CoreGui"):WaitForChild("runMode").Value == "coreGui") then
+			guiEmbedLocation = game:GetService("CoreGui")
+		else
+			guiEmbedLocation = game:GetService("Players").LocalPlayer.PlayerGui
+		end
+	else
+		guiEmbedLocation = game:GetService("CoreGui")
+	end
+	
 
 -- Instances:
 
@@ -22,7 +32,7 @@ local Gui = {
 --Properties:
 
 Gui.crewmates.Name = "crewmates"
-Gui.crewmates.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
+Gui.crewmates.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
 Gui.crewmates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.crewmates.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.crewmates.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -176,7 +186,7 @@ Gui.icon.Image = "http://www.roblox.com/asset/?id=18241466938"
 
 -- Scripts:
 
-local function QRIMW_fake_script() -- Gui.crewmates.LocalScript 
+local function PZQR_fake_script() -- Gui.crewmates.LocalScript 
 	local script = Instance.new('LocalScript', Gui.crewmates)
 
 	
@@ -205,7 +215,7 @@ local function QRIMW_fake_script() -- Gui.crewmates.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -266,8 +276,8 @@ local function QRIMW_fake_script() -- Gui.crewmates.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(QRIMW_fake_script)()
-local function OWQWAH_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(PZQR_fake_script)()
+local function MCLO_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -285,8 +295,8 @@ local function OWQWAH_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(OWQWAH_fake_script)()
-local function IESRA_fake_script() -- Gui.minimize.script 
+coroutine.wrap(MCLO_fake_script)()
+local function HMAK_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -313,12 +323,12 @@ local function IESRA_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(IESRA_fake_script)()
-local function PYGNZ_fake_script() -- Gui.ESP.crewmatesESP 
+coroutine.wrap(HMAK_fake_script)()
+local function PJWV_fake_script() -- Gui.ESP.crewmatesESP 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -328,7 +338,7 @@ local function PYGNZ_fake_script() -- Gui.ESP.crewmatesESP
 	
 	function findWhoTheImposterIs()
 		local imposters = {}
-		for _, player in pairs(game.Players:GetChildren()) do
+		for _, player in pairs(game:GetService("Players"):GetChildren()) do
 			local value = player:WaitForChild("PublicStates").Role.Value
 			if (value == "Impostor") then
 				imposters[#imposters+1]=player.Name
@@ -357,7 +367,7 @@ local function PYGNZ_fake_script() -- Gui.ESP.crewmatesESP
 		main.esp(enabled, true, false, crewmateColors)
 	end)
 	
-	game.Players.PlayerAdded:Connect(function(player)
+	game:GetService("Players").PlayerAdded:Connect(function(player)
 		player.CharacterAdded:Connect(function(character)
 			repeat wait() until character and character:FindFirstChild('HumanoidRootPart')
 			--reload()
@@ -367,7 +377,7 @@ local function PYGNZ_fake_script() -- Gui.ESP.crewmatesESP
 		end)
 	end)
 	
-	for _, player in pairs(game.Players:GetPlayers()) do
+	for _, player in pairs(game:GetService("Players"):GetPlayers()) do
 		player.CharacterAdded:Connect(function(character)
 			repeat wait() until character and character:FindFirstChild('HumanoidRootPart')
 			--reload()
@@ -379,12 +389,12 @@ local function PYGNZ_fake_script() -- Gui.ESP.crewmatesESP
 	end
 	
 end
-coroutine.wrap(PYGNZ_fake_script)()
-local function VIWLMC_fake_script() -- Gui.crewmates.identifier 
+coroutine.wrap(PJWV_fake_script)()
+local function XEPS_fake_script() -- Gui.crewmates.identifier 
 	local script = Instance.new('LocalScript', Gui.crewmates)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -397,4 +407,4 @@ local function VIWLMC_fake_script() -- Gui.crewmates.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(VIWLMC_fake_script)()
+coroutine.wrap(XEPS_fake_script)()

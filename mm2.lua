@@ -1,4 +1,14 @@
-
+local guiEmbedLocation = nil
+	if (game:GetService("CoreGui"):FindFirstChild("runMode")) then
+		if (game:GetService("CoreGui"):WaitForChild("runMode").Value == "coreGui") then
+			guiEmbedLocation = game:GetService("CoreGui")
+		else
+			guiEmbedLocation = game:GetService("Players").LocalPlayer.PlayerGui
+		end
+	else
+		guiEmbedLocation = game:GetService("CoreGui")
+	end
+	
 
 -- Instances:
 
@@ -23,7 +33,7 @@ local Gui = {
 --Properties:
 
 Gui.mm2.Name = "mm2"
-Gui.mm2.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
+Gui.mm2.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
 Gui.mm2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.mm2.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.mm2.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -189,7 +199,7 @@ Gui.knifeDodge.TextSize = 14.000
 
 -- Scripts:
 
-local function RBDW_fake_script() -- Gui.mm2.LocalScript 
+local function MEQKATY_fake_script() -- Gui.mm2.LocalScript 
 	local script = Instance.new('LocalScript', Gui.mm2)
 
 	
@@ -218,7 +228,7 @@ local function RBDW_fake_script() -- Gui.mm2.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -279,8 +289,8 @@ local function RBDW_fake_script() -- Gui.mm2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(RBDW_fake_script)()
-local function ZXTPU_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(MEQKATY_fake_script)()
+local function HOCWJCB_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -298,8 +308,8 @@ local function ZXTPU_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(ZXTPU_fake_script)()
-local function GSISIQ_fake_script() -- Gui.minimize.script 
+coroutine.wrap(HOCWJCB_fake_script)()
+local function PQEORIH_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -326,12 +336,12 @@ local function GSISIQ_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(GSISIQ_fake_script)()
-local function JBTRFKO_fake_script() -- Gui.ESP.mm2ESP 
+coroutine.wrap(PQEORIH_fake_script)()
+local function ZEMSEGY_fake_script() -- Gui.ESP.mm2ESP 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -342,7 +352,7 @@ local function JBTRFKO_fake_script() -- Gui.ESP.mm2ESP
 	
 	function mm2Colors(name)
 		local hex = "#00ff00"
-		local v = game.Players:WaitForChild(name)
+		local v = game:GetService("Players"):WaitForChild(name)
 		print("thingie")
 		if v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
 			hex = "#ff0000"
@@ -364,7 +374,7 @@ local function JBTRFKO_fake_script() -- Gui.ESP.mm2ESP
 		main.esp(enabled, true, false, mm2Colors)
 	end)
 	
-	game.Players.PlayerAdded:Connect(function(player)
+	game:GetService("Players").PlayerAdded:Connect(function(player)
 		player.CharacterAdded:Connect(function(character)
 			repeat wait() until character and character:FindFirstChild('HumanoidRootPart')
 			--reload()
@@ -374,7 +384,7 @@ local function JBTRFKO_fake_script() -- Gui.ESP.mm2ESP
 		end)
 	end)
 	
-	for _, player in pairs(game.Players:GetPlayers()) do
+	for _, player in pairs(game:GetService("Players"):GetPlayers()) do
 		player.CharacterAdded:Connect(function(character)
 			repeat wait() until character and character:FindFirstChild('HumanoidRootPart')
 			--reload()
@@ -386,15 +396,15 @@ local function JBTRFKO_fake_script() -- Gui.ESP.mm2ESP
 	end
 	
 end
-coroutine.wrap(JBTRFKO_fake_script)()
-local function NFSPBSF_fake_script() -- Gui.knifeDodge.mm2KnifeDodge 
+coroutine.wrap(ZEMSEGY_fake_script)()
+local function SSXBG_fake_script() -- Gui.knifeDodge.mm2KnifeDodge 
 	local script = Instance.new('LocalScript', Gui.knifeDodge)
 
 	local enabled = false
-	local char = game.Players.LocalPlayer.Character
+	local char = game:GetService("Players").LocalPlayer.Character
 	
 	function createKnifeHitbox() 
-		char = game.Players.LocalPlayer.Character
+		char = game:GetService("Players").LocalPlayer.Character
 		local hitbox
 		local weld
 		if (enabled == true) then
@@ -409,14 +419,14 @@ local function NFSPBSF_fake_script() -- Gui.knifeDodge.mm2KnifeDodge
 				
 				hitbox.Touched:Connect(function(part)
 					print("KNIFE DETECTED")
-					local char = game.Players.LocalPlayer.Character
+					local char = game:GetService("Players").LocalPlayer.Character
 					local currentCoords = char.HumanoidRootPart.CFrame
 					local safeCoords = CFrame.new(3, 504.8276062011719, -30)
 					print(part.Name)
 					if (part and part:IsA("Model") and part.Name == "ThrowingKnife") then
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = safeCoords
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = safeCoords
 						wait(1)
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentCoords
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = currentCoords
 					end
 	
 				end)
@@ -454,12 +464,12 @@ local function NFSPBSF_fake_script() -- Gui.knifeDodge.mm2KnifeDodge
 	
 	
 end
-coroutine.wrap(NFSPBSF_fake_script)()
-local function NFHSZ_fake_script() -- Gui.mm2.identifier 
+coroutine.wrap(SSXBG_fake_script)()
+local function RNVZUI_fake_script() -- Gui.mm2.identifier 
 	local script = Instance.new('LocalScript', Gui.mm2)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -472,4 +482,4 @@ local function NFHSZ_fake_script() -- Gui.mm2.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(NFHSZ_fake_script)()
+coroutine.wrap(RNVZUI_fake_script)()

@@ -1,4 +1,14 @@
-
+local guiEmbedLocation = nil
+	if (game:GetService("CoreGui"):FindFirstChild("runMode")) then
+		if (game:GetService("CoreGui"):WaitForChild("runMode").Value == "coreGui") then
+			guiEmbedLocation = game:GetService("CoreGui")
+		else
+			guiEmbedLocation = game:GetService("Players").LocalPlayer.PlayerGui
+		end
+	else
+		guiEmbedLocation = game:GetService("CoreGui")
+	end
+	
 
 -- Instances:
 
@@ -21,7 +31,7 @@ local Gui = {
 --Properties:
 
 Gui.jailbreak.Name = "jailbreak"
-Gui.jailbreak.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
+Gui.jailbreak.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
 Gui.jailbreak.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.jailbreak.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Gui.jailbreak.Position = UDim2.new(0.250186086, 0, 0.277312994, 0)
@@ -158,7 +168,7 @@ Gui.icon.Image = "http://www.roblox.com/asset/?id=18246230914"
 
 -- Scripts:
 
-local function SFNUZ_fake_script() -- Gui.jailbreak.LocalScript 
+local function YDDN_fake_script() -- Gui.jailbreak.LocalScript 
 	local script = Instance.new('LocalScript', Gui.jailbreak)
 
 	
@@ -187,7 +197,7 @@ local function SFNUZ_fake_script() -- Gui.jailbreak.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -248,8 +258,8 @@ local function SFNUZ_fake_script() -- Gui.jailbreak.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(SFNUZ_fake_script)()
-local function WKNK_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(YDDN_fake_script)()
+local function HQQJYQM_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -267,8 +277,8 @@ local function WKNK_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(WKNK_fake_script)()
-local function LWGRUFJ_fake_script() -- Gui.minimize.script 
+coroutine.wrap(HQQJYQM_fake_script)()
+local function GYOZLYC_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -295,8 +305,8 @@ local function LWGRUFJ_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(LWGRUFJ_fake_script)()
-local function WCBPQO_fake_script() -- Gui.carSuspension.LocalScript 
+coroutine.wrap(GYOZLYC_fake_script)()
+local function YEEPQ_fake_script() -- Gui.carSuspension.LocalScript 
 	local script = Instance.new('LocalScript', Gui.carSuspension)
 
 	
@@ -321,12 +331,12 @@ local function WCBPQO_fake_script() -- Gui.carSuspension.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(WCBPQO_fake_script)()
-local function AQSLX_fake_script() -- Gui.jailbreak.identifier 
+coroutine.wrap(YEEPQ_fake_script)()
+local function CFXSWD_fake_script() -- Gui.jailbreak.identifier 
 	local script = Instance.new('LocalScript', Gui.jailbreak)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -339,4 +349,4 @@ local function AQSLX_fake_script() -- Gui.jailbreak.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(AQSLX_fake_script)()
+coroutine.wrap(CFXSWD_fake_script)()

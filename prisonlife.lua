@@ -1,4 +1,14 @@
-
+local guiEmbedLocation = nil
+	if (game:GetService("CoreGui"):FindFirstChild("runMode")) then
+		if (game:GetService("CoreGui"):WaitForChild("runMode").Value == "coreGui") then
+			guiEmbedLocation = game:GetService("CoreGui")
+		else
+			guiEmbedLocation = game:GetService("Players").LocalPlayer.PlayerGui
+		end
+	else
+		guiEmbedLocation = game:GetService("CoreGui")
+	end
+	
 
 -- Instances:
 
@@ -30,7 +40,7 @@ local Gui = {
 --Properties:
 
 Gui.prisonlife.Name = "prisonlife"
-Gui.prisonlife.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
+Gui.prisonlife.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
 Gui.prisonlife.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.prisonlife.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.prisonlife.Position = UDim2.new(0.0459862724, 0, 0.202871323, 0)
@@ -267,7 +277,7 @@ Gui.godMode.TextSize = 14.000
 
 -- Scripts:
 
-local function DIBG_fake_script() -- Gui.prisonlife.LocalScript 
+local function WQFQP_fake_script() -- Gui.prisonlife.LocalScript 
 	local script = Instance.new('LocalScript', Gui.prisonlife)
 
 	local dragger = {}; 
@@ -313,8 +323,8 @@ local function DIBG_fake_script() -- Gui.prisonlife.LocalScript
 	script.Parent.Active = true
 	script.Parent.Draggable = true
 end
-coroutine.wrap(DIBG_fake_script)()
-local function VKFSK_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(WQFQP_fake_script)()
+local function QZVRZJM_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -332,8 +342,8 @@ local function VKFSK_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(VKFSK_fake_script)()
-local function VXDZO_fake_script() -- Gui.minimize.script 
+coroutine.wrap(QZVRZJM_fake_script)()
+local function LEEMX_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -360,8 +370,8 @@ local function VXDZO_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(VXDZO_fake_script)()
-local function ECYLM_fake_script() -- Gui.AllGuns.LocalScript 
+coroutine.wrap(LEEMX_fake_script)()
+local function TYMYNX_fake_script() -- Gui.AllGuns.LocalScript 
 	local script = Instance.new('LocalScript', Gui.AllGuns)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -371,19 +381,19 @@ local function ECYLM_fake_script() -- Gui.AllGuns.LocalScript
 		end
 	end)
 end
-coroutine.wrap(ECYLM_fake_script)()
-local function DBTVGQZ_fake_script() -- Gui.Btools.LocalScript 
+coroutine.wrap(TYMYNX_fake_script)()
+local function QCLIJPP_fake_script() -- Gui.Btools.LocalScript 
 	local script = Instance.new('LocalScript', Gui.Btools)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		local tool1 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
-		local tool2 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+		local tool1 = Instance.new("HopperBin",game:GetService("Players").LocalPlayer.Backpack)
+		local tool2 = Instance.new("HopperBin",game:GetService("Players").LocalPlayer.Backpack)
 		tool1.BinType = "Clone"
 		tool2.BinType = "Hammer"
 	end)
 end
-coroutine.wrap(DBTVGQZ_fake_script)()
-local function GVNWFOK_fake_script() -- Gui.InfStamina.LocalScript 
+coroutine.wrap(QCLIJPP_fake_script)()
+local function LUFQSYU_fake_script() -- Gui.InfStamina.LocalScript 
 	local script = Instance.new('LocalScript', Gui.InfStamina)
 
 	function Click(mouse)
@@ -416,13 +426,13 @@ local function GVNWFOK_fake_script() -- Gui.InfStamina.LocalScript
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(GVNWFOK_fake_script)()
-local function NHIIXQ_fake_script() -- Gui.noClip.LocalScript 
+coroutine.wrap(LUFQSYU_fake_script)()
+local function GVCCWT_fake_script() -- Gui.noClip.LocalScript 
 	local script = Instance.new('LocalScript', Gui.noClip)
 
 	function Click(mouse)
-		if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
-			game.Players.LocalPlayer.Character:FindFirstChild("Humanoid"):ChangeState(11)
+		if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+			game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid"):ChangeState(11)
 		end
 	end
 	
@@ -430,29 +440,29 @@ local function NHIIXQ_fake_script() -- Gui.noClip.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(NHIIXQ_fake_script)()
-local function XUHLMI_fake_script() -- Gui.PoliceRoom.LocalScript 
+coroutine.wrap(GVCCWT_fake_script)()
+local function YZWWM_fake_script() -- Gui.PoliceRoom.LocalScript 
 	local script = Instance.new('LocalScript', Gui.PoliceRoom)
 
 	function Click(mouse)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(802,99,2270)
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(802,99,2270)
 	
 	end
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(XUHLMI_fake_script)()
-local function CPZQFC_fake_script() -- Gui.CrimBase.LocalScript 
+coroutine.wrap(YZWWM_fake_script)()
+local function OHWGP_fake_script() -- Gui.CrimBase.LocalScript 
 	local script = Instance.new('LocalScript', Gui.CrimBase)
 
 	function Click(mouse)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-944.3486328125, 94.128784179688, 2056.3723144531)
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-944.3486328125, 94.128784179688, 2056.3723144531)
 	end
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(CPZQFC_fake_script)()
-local function JSZQ_fake_script() -- Gui.godMode.LocalScript 
+coroutine.wrap(OHWGP_fake_script)()
+local function GTZZU_fake_script() -- Gui.godMode.LocalScript 
 	local script = Instance.new('LocalScript', Gui.godMode)
 
 	function Click(mouse)
@@ -532,12 +542,12 @@ local function JSZQ_fake_script() -- Gui.godMode.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(JSZQ_fake_script)()
-local function JDIJYZI_fake_script() -- Gui.prisonlife.identifier 
+coroutine.wrap(GTZZU_fake_script)()
+local function KFLRRW_fake_script() -- Gui.prisonlife.identifier 
 	local script = Instance.new('LocalScript', Gui.prisonlife)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -550,4 +560,4 @@ local function JDIJYZI_fake_script() -- Gui.prisonlife.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(JDIJYZI_fake_script)()
+coroutine.wrap(KFLRRW_fake_script)()

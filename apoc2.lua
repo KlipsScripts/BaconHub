@@ -1,4 +1,14 @@
-
+local guiEmbedLocation = nil
+	if (game:GetService("CoreGui"):FindFirstChild("runMode")) then
+		if (game:GetService("CoreGui"):WaitForChild("runMode").Value == "coreGui") then
+			guiEmbedLocation = game:GetService("CoreGui")
+		else
+			guiEmbedLocation = game:GetService("Players").LocalPlayer.PlayerGui
+		end
+	else
+		guiEmbedLocation = game:GetService("CoreGui")
+	end
+	
 
 -- Instances:
 
@@ -24,11 +34,12 @@ local Gui = {
 --Properties:
 
 Gui.apoc2.Name = "apoc2"
-Gui.apoc2.Parent = game.Players.LocalPlayer.PlayerGui:WaitForChild('baconHubMain')
+Gui.apoc2.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
 Gui.apoc2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.apoc2.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.apoc2.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
 Gui.apoc2.Size = UDim2.new(0, 550, 0, 523)
+Gui.apoc2.Visible = false
 
 Gui.close.Name = "close"
 Gui.close.Parent = Gui.apoc2
@@ -201,7 +212,7 @@ Gui.zge.TextSize = 14.000
 
 -- Scripts:
 
-local function VCRRMV_fake_script() -- Gui.apoc2.LocalScript 
+local function NCHUIII_fake_script() -- Gui.apoc2.LocalScript 
 	local script = Instance.new('LocalScript', Gui.apoc2)
 
 	
@@ -230,7 +241,7 @@ local function VCRRMV_fake_script() -- Gui.apoc2.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -291,8 +302,8 @@ local function VCRRMV_fake_script() -- Gui.apoc2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(VCRRMV_fake_script)()
-local function NQYHTJP_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(NCHUIII_fake_script)()
+local function VZKQZYI_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -310,8 +321,8 @@ local function NQYHTJP_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(NQYHTJP_fake_script)()
-local function GHBQWCL_fake_script() -- Gui.minimize.script 
+coroutine.wrap(VZKQZYI_fake_script)()
+local function NAJXE_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -338,12 +349,12 @@ local function GHBQWCL_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(GHBQWCL_fake_script)()
-local function DMMGG_fake_script() -- Gui.ESP.carEsp 
+coroutine.wrap(NAJXE_fake_script)()
+local function VHDY_fake_script() -- Gui.ESP.carEsp 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -377,12 +388,12 @@ local function DMMGG_fake_script() -- Gui.ESP.carEsp
 		end
 	end)
 end
-coroutine.wrap(DMMGG_fake_script)()
-local function HMYN_fake_script() -- Gui.apoc2.identifier 
+coroutine.wrap(VHDY_fake_script)()
+local function NNTMUU_fake_script() -- Gui.apoc2.identifier 
 	local script = Instance.new('LocalScript', Gui.apoc2)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -395,12 +406,12 @@ local function HMYN_fake_script() -- Gui.apoc2.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(HMYN_fake_script)()
-local function ROBR_fake_script() -- Gui.atmosphere.anitFog 
+coroutine.wrap(NNTMUU_fake_script)()
+local function BJLG_fake_script() -- Gui.atmosphere.anitFog 
 	local script = Instance.new('LocalScript', Gui.atmosphere)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -431,12 +442,12 @@ local function ROBR_fake_script() -- Gui.atmosphere.anitFog
 		end
 	end)
 end
-coroutine.wrap(ROBR_fake_script)()
-local function MVJZYRP_fake_script() -- Gui.zge.zombieGunEsp 
+coroutine.wrap(BJLG_fake_script)()
+local function UOEYRDT_fake_script() -- Gui.zge.zombieGunEsp 
 	local script = Instance.new('LocalScript', Gui.zge)
 
 	--Module Loader
-	local menu = game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+	local menu = guiEmbedLocation:FindFirstChild("baconHubMain")
 	local source = menu:WaitForChild("mainFunctions").Source
 	local module, err = loadstring(source)
 	if not module then
@@ -485,4 +496,4 @@ local function MVJZYRP_fake_script() -- Gui.zge.zombieGunEsp
 	end)
 	
 end
-coroutine.wrap(MVJZYRP_fake_script)()
+coroutine.wrap(UOEYRDT_fake_script)()

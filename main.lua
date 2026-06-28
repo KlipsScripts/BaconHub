@@ -1,4 +1,14 @@
-
+local guiEmbedLocation = nil
+	if (game:GetService("CoreGui"):FindFirstChild("runMode")) then
+		if (game:GetService("CoreGui"):WaitForChild("runMode").Value == "coreGui") then
+			guiEmbedLocation = game:GetService("CoreGui")
+		else
+			guiEmbedLocation = game:GetService("Players").LocalPlayer.PlayerGui
+		end
+	else
+		guiEmbedLocation = game:GetService("CoreGui")
+	end
+	
 
 -- Instances:
 
@@ -95,7 +105,7 @@ local baconHubMain = {
 --Properties:
 
 baconHubMain.baconHubMain.Name = "baconHubMain"
-baconHubMain.baconHubMain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+baconHubMain.baconHubMain.Parent = guiEmbedLocation
 baconHubMain.baconHubMain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 baconHubMain.baconHubMain.ResetOnSpawn = false
 
@@ -1023,11 +1033,13 @@ do -- baconHubMain.baconHubMain.mainFunctions
 		local main = {}
 		
 		function main.findMainPath()
-			return game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+			return game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService('CoreGui'):FindFirstChild("baconHubMain") --MUST REMAIN DIFFERENT THAN GuiToLuaSTRING
 		end
 		
 		function main.registerNewScript(name, image, ui)
+			print("registering new")
 			local taskbar = main.findMainPath().win10taskbar.Frame.Frame
+			print("test 1")
 			local newEntry = taskbar.settings:Clone()
 			newEntry.Parent = taskbar
 			newEntry.Name = name
@@ -1038,6 +1050,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 			newEntry.MouseButton1Down:Connect(function()
 				main.registerToOpen(name)
 			end)
+			print("test 2")
 			
 			ui.Visible = false
 		end
@@ -1065,8 +1078,8 @@ do -- baconHubMain.baconHubMain.mainFunctions
 		function main.esp(enabled, persist, includeSelf, func)
 			local hex
 			if enabled == true then
-				for i, v in pairs(game.Players:GetPlayers()) do
-					if ((v.Name ~= game.Players.LocalPlayer.Name and not includeSelf) or includeSelf) and v.Character then
+				for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+					if ((v.Name ~= game:GetService("Players").LocalPlayer.Name and not includeSelf) or includeSelf) and v.Character then
 		
 						hex = "#00ff00"
 						hex = func(v.Name)
@@ -1102,7 +1115,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 					end
 				end
 			elseif enabled == false then
-				for i, v in pairs(game.Players:GetPlayers()) do
+				for i, v in pairs(game:GetService("Players"):GetPlayers()) do
 					if v.Character then
 						local espOutline = v.Character:FindFirstChild('espOutline')
 						local humanoidRootPart = v.Character:FindFirstChild('HumanoidRootPart')
@@ -1132,11 +1145,13 @@ do -- baconHubMain.baconHubMain.mainFunctions
 	script.Source = [[local main = {}
 	
 	function main.findMainPath()
-		return game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain")
+		return game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService('CoreGui'):FindFirstChild("baconHubMain") --MUST REMAIN DIFFERENT THAN GuiToLuaSTRING
 	end
 	
 	function main.registerNewScript(name, image, ui)
+		print("registering new")
 		local taskbar = main.findMainPath().win10taskbar.Frame.Frame
+		print("test 1")
 		local newEntry = taskbar.settings:Clone()
 		newEntry.Parent = taskbar
 		newEntry.Name = name
@@ -1147,6 +1162,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 		newEntry.MouseButton1Down:Connect(function()
 			main.registerToOpen(name)
 		end)
+		print("test 2")
 		
 		ui.Visible = false
 	end
@@ -1174,8 +1190,8 @@ do -- baconHubMain.baconHubMain.mainFunctions
 	function main.esp(enabled, persist, includeSelf, func)
 		local hex
 		if enabled == true then
-			for i, v in pairs(game.Players:GetPlayers()) do
-				if ((v.Name ~= game.Players.LocalPlayer.Name and not includeSelf) or includeSelf) and v.Character then
+			for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+				if ((v.Name ~= game:GetService("Players").LocalPlayer.Name and not includeSelf) or includeSelf) and v.Character then
 	
 					hex = "#00ff00"
 					hex = func(v.Name)
@@ -1211,7 +1227,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 				end
 			end
 		elseif enabled == false then
-			for i, v in pairs(game.Players:GetPlayers()) do
+			for i, v in pairs(game:GetService("Players"):GetPlayers()) do
 				if v.Character then
 					local espOutline = v.Character:FindFirstChild('espOutline')
 					local humanoidRootPart = v.Character:FindFirstChild('HumanoidRootPart')
@@ -1242,7 +1258,7 @@ end
 
 -- Scripts:
 
-local function OLTZH_fake_script() -- baconHubMain.Frame_2.opener 
+local function OWHESFE_fake_script() -- baconHubMain.Frame_2.opener 
 	local script = Instance.new('LocalScript', baconHubMain.Frame_2)
 	local req = require
 	local require = function(obj)
@@ -1254,7 +1270,8 @@ local function OLTZH_fake_script() -- baconHubMain.Frame_2.opener
 	end
 
 	local children = script.Parent.Parent.Frame:GetChildren()
-	local main = require(game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain").mainFunctions)
+	local guiLocation = guiEmbedLocation:FindFirstChild("baconHubMain")
+	local main = require(guiLocation.mainFunctions)
 	
 	for _, child in pairs(children) do
 		if (child:IsA("ImageButton")) then
@@ -1264,8 +1281,8 @@ local function OLTZH_fake_script() -- baconHubMain.Frame_2.opener
 		end
 	end
 end
-coroutine.wrap(OLTZH_fake_script)()
-local function AGGGKT_fake_script() -- baconHubMain.win10taskbar.LocalScript 
+coroutine.wrap(OWHESFE_fake_script)()
+local function CULEG_fake_script() -- baconHubMain.win10taskbar.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1283,8 +1300,8 @@ local function AGGGKT_fake_script() -- baconHubMain.win10taskbar.LocalScript
 		layer.Name = "windows"
 	end
 end
-coroutine.wrap(AGGGKT_fake_script)()
-local function ZDUB_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
+coroutine.wrap(CULEG_fake_script)()
+local function ZDRLHO_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.windowsHomeButton)
 	local req = require
 	local require = function(obj)
@@ -1309,8 +1326,8 @@ local function ZDUB_fake_script() -- baconHubMain.windowsHomeButton.LocalScript
 	
 	
 end
-coroutine.wrap(ZDUB_fake_script)()
-local function RTHPOQE_fake_script() -- baconHubMain.win10taskbar.draggable 
+coroutine.wrap(ZDRLHO_fake_script)()
+local function ZJISYF_fake_script() -- baconHubMain.win10taskbar.draggable 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1347,7 +1364,7 @@ local function RTHPOQE_fake_script() -- baconHubMain.win10taskbar.draggable
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -1408,8 +1425,8 @@ local function RTHPOQE_fake_script() -- baconHubMain.win10taskbar.draggable
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(RTHPOQE_fake_script)()
-local function OLWON_fake_script() -- baconHubMain.win10.LocalScript 
+coroutine.wrap(ZJISYF_fake_script)()
+local function XOOEU_fake_script() -- baconHubMain.win10.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10)
 	local req = require
 	local require = function(obj)
@@ -1427,8 +1444,8 @@ local function OLWON_fake_script() -- baconHubMain.win10.LocalScript
 	layer.Name = "layer"
 	end
 end
-coroutine.wrap(OLWON_fake_script)()
-local function KDYA_fake_script() -- baconHubMain.settings_2.LocalScript 
+coroutine.wrap(XOOEU_fake_script)()
+local function HXWSY_fake_script() -- baconHubMain.settings_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.settings_2)
 	local req = require
 	local require = function(obj)
@@ -1465,7 +1482,7 @@ local function KDYA_fake_script() -- baconHubMain.settings_2.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -1526,8 +1543,8 @@ local function KDYA_fake_script() -- baconHubMain.settings_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(KDYA_fake_script)()
-local function FBRWSFA_fake_script() -- baconHubMain.close.LocalScript 
+coroutine.wrap(HXWSY_fake_script)()
+local function LHXNW_fake_script() -- baconHubMain.close.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close)
 	local req = require
 	local require = function(obj)
@@ -1553,8 +1570,8 @@ local function FBRWSFA_fake_script() -- baconHubMain.close.LocalScript
 	
 	
 end
-coroutine.wrap(FBRWSFA_fake_script)()
-local function RESY_fake_script() -- baconHubMain.minimize.LocalScript 
+coroutine.wrap(LHXNW_fake_script)()
+local function MYBY_fake_script() -- baconHubMain.minimize.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize)
 	local req = require
 	local require = function(obj)
@@ -1589,8 +1606,8 @@ local function RESY_fake_script() -- baconHubMain.minimize.LocalScript
 	
 	
 end
-coroutine.wrap(RESY_fake_script)()
-local function XOCR_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
+coroutine.wrap(MYBY_fake_script)()
+local function ZRTX_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.walkspeedButton)
 	local req = require
 	local require = function(obj)
@@ -1603,11 +1620,11 @@ local function XOCR_fake_script() -- baconHubMain.walkspeedButton.LocalScript
 
 	script.Parent.MouseButton1Click:Connect(function()
 		
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.walkspeedValue.Text
+		game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.walkspeedValue.Text
 	end)
 end
-coroutine.wrap(XOCR_fake_script)()
-local function DHOLUK_fake_script() -- baconHubMain.spinButton.LocalScript 
+coroutine.wrap(ZRTX_fake_script)()
+local function NKJTPV_fake_script() -- baconHubMain.spinButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.spinButton)
 	local req = require
 	local require = function(obj)
@@ -1620,15 +1637,15 @@ local function DHOLUK_fake_script() -- baconHubMain.spinButton.LocalScript
 
 	local spinning = false
 	local power = tonumber(script.Parent.Parent.spinValue.Text)
-	
+	local players = game:GetService("Players")
 	
 	script.Parent.MouseButton1Click:Connect(function()
 		if spinning == true then
 			spinning = false
 			script.Parent.Text = "Enable Spinning (off)"
-			if (game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild('BodyThrust')) then
-				game.Players.LocalPlayer.Character.HumanoidRootPart:WaitForChild('BodyThrust'):Destroy()
-				game.Players.LocalPlayer.Character.HumanoidRootPart.RotVelocity = Vector3.zero
+			if (players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild('BodyThrust')) then
+				players.LocalPlayer.Character.HumanoidRootPart:WaitForChild('BodyThrust'):Destroy()
+				players.LocalPlayer.Character.HumanoidRootPart.RotVelocity = Vector3.zero
 			end
 		else
 			spinning = true
@@ -1640,35 +1657,35 @@ local function DHOLUK_fake_script() -- baconHubMain.spinButton.LocalScript
 	function spin()
 		power = tonumber(script.Parent.Parent.spinValue.Text)
 		game:GetService('RunService').Stepped:connect(function()
-			if (game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Head")) then
-				game.Players.LocalPlayer.Character.Head.CanCollide = false
-				game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
-				game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = true
-				
-				if game.Players.LocalPlayer.Character:FindFirstChild('LeftFoot') then
-					game.Players.LocalPlayer.Character.LeftFoot.CanCollide = false
-					game.Players.LocalPlayer.Character.RightFoot.CanCollide = false
+			if (players.LocalPlayer.Character and players.LocalPlayer.Character:FindFirstChild("Head")) then
+				players.LocalPlayer.Character.Head.CanCollide = false
+				players.LocalPlayer.Character.UpperTorso.CanCollide = false
+				players.LocalPlayer.Character.LowerTorso.CanCollide = false
+				players.LocalPlayer.Character.HumanoidRootPart.CanCollide = true
+	
+				if players.LocalPlayer.Character:FindFirstChild('LeftFoot') then
+					players.LocalPlayer.Character.LeftFoot.CanCollide = false
+					players.LocalPlayer.Character.RightFoot.CanCollide = false
 				end 
 			end
 		end)
 		wait(.1)
 		local spin = Instance.new("BodyThrust")
-		spin.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+		spin.Parent = players.LocalPlayer.Character.HumanoidRootPart
 		spin.Force = Vector3.new(power,0,power)
-		spin.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+		spin.Location = players.LocalPlayer.Character.HumanoidRootPart.Position
 	end
 	
-	game.Players.LocalPlayer.CharacterAdded:Connect(function(player)
-		if (player.Name == game.Players.LocalPlayer.Name) then
+	players.LocalPlayer.CharacterAdded:Connect(function(player)
+		if (player.Name == players.LocalPlayer.Name) then
 			spinning = false
 			script.Parent.Text = "Enable Spinning (off)"
 		end
-		
+	
 	end)
 end
-coroutine.wrap(DHOLUK_fake_script)()
-local function UEQK_fake_script() -- baconHubMain.flyButton.LocalScript 
+coroutine.wrap(NKJTPV_fake_script)()
+local function AOGX_fake_script() -- baconHubMain.flyButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.flyButton)
 	local req = require
 	local require = function(obj)
@@ -1680,11 +1697,11 @@ local function UEQK_fake_script() -- baconHubMain.flyButton.LocalScript
 	end
 
 	repeat wait() 
-	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") 
+	until game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") 
 	
-	local mouse = game.Players.LocalPlayer:GetMouse() 
+	local mouse = game:GetService("Players").LocalPlayer:GetMouse() 
 	repeat wait() until mouse
-	local plr = game.Players.LocalPlayer 
+	local plr = game:GetService("Players").LocalPlayer 
 	local torso = plr.Character.HumanoidRootPart 
 	local flying = false
 	local ctrl = {f = 0, b = 0, l = 0, r = 0} 
@@ -1791,15 +1808,15 @@ local function UEQK_fake_script() -- baconHubMain.flyButton.LocalScript
 		end 
 	end)
 	
-	game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
+	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
 		torso = character:WaitForChild("HumanoidRootPart")
 		local humanoid = character:WaitForChild("Humanoid")
 		humanoid.Died:Connect(resetFly)
 	end)
 	
 end
-coroutine.wrap(UEQK_fake_script)()
-local function ZYFO_fake_script() -- baconHubMain.espScript.genericESP 
+coroutine.wrap(AOGX_fake_script)()
+local function QDFVRC_fake_script() -- baconHubMain.espScript.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.espScript)
 	local req = require
 	local require = function(obj)
@@ -1810,7 +1827,8 @@ local function ZYFO_fake_script() -- baconHubMain.espScript.genericESP
 		return req(obj)
 	end
 
-	local main = require(game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain").mainFunctions)
+	local guiLocation = guiEmbedLocation:FindFirstChild("baconHubMain")
+	local main = require(guiLocation.mainFunctions)
 	local enabled = false
 	
 	function genericColors(name)
@@ -1825,7 +1843,7 @@ local function ZYFO_fake_script() -- baconHubMain.espScript.genericESP
 		main.esp(enabled, true, false, genericColors)
 	end)
 	
-	game.Players.PlayerAdded:Connect(function(player)
+	game:GetService("Players").PlayerAdded:Connect(function(player)
 		player.CharacterAdded:Connect(function(character)
 			repeat wait() until character and character:FindFirstChild('HumanoidRootPart')
 			--reload()
@@ -1835,7 +1853,7 @@ local function ZYFO_fake_script() -- baconHubMain.espScript.genericESP
 		end)
 	end)
 	
-	for _, player in pairs(game.Players:GetPlayers()) do
+	for _, player in pairs(game:GetService("Players"):GetPlayers()) do
 		player.CharacterAdded:Connect(function(character)
 			repeat wait() until character and character:FindFirstChild('HumanoidRootPart')
 			--reload()
@@ -1847,8 +1865,8 @@ local function ZYFO_fake_script() -- baconHubMain.espScript.genericESP
 	end
 	
 end
-coroutine.wrap(ZYFO_fake_script)()
-local function BJRSUBB_fake_script() -- baconHubMain.fullbright.LocalScript 
+coroutine.wrap(QDFVRC_fake_script)()
+local function ZOOAZO_fake_script() -- baconHubMain.fullbright.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.fullbright)
 	local req = require
 	local require = function(obj)
@@ -1864,7 +1882,7 @@ local function BJRSUBB_fake_script() -- baconHubMain.fullbright.LocalScript
 	function instanceLightSource()
 		local light = Instance.new('PointLight')
 		light.Range = 100
-		light.Parent = game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart")
+		light.Parent = game.Workspace:WaitForChild(game:GetService("Players").LocalPlayer.Name):WaitForChild("HumanoidRootPart")
 		light.Name = 'light'
 	end
 	
@@ -1877,20 +1895,20 @@ local function BJRSUBB_fake_script() -- baconHubMain.fullbright.LocalScript
 		else
 			script.Parent.Text = "Enable Fullbright (off)"
 			enabled = false
-			if (game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart:FindFirstChild('light')) then
-				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart:WaitForChild('light'):Destroy()
+			if (game.Workspace:WaitForChild(game:GetService("Players").LocalPlayer.Name).HumanoidRootPart:FindFirstChild('light')) then
+				game.Workspace:WaitForChild(game:GetService("Players").LocalPlayer.Name).HumanoidRootPart:WaitForChild('light'):Destroy()
 			end
 		end
 	end)
 	
-	game.Players.LocalPlayer.CharacterAdded:Connect(function()
+	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
 		if enabled == true then
 			instanceLightSource()
 		end
 	end)
 end
-coroutine.wrap(BJRSUBB_fake_script)()
-local function WDTVMG_fake_script() -- baconHubMain.aimbot.LocalScript 
+coroutine.wrap(ZOOAZO_fake_script)()
+local function ELFMZLV_fake_script() -- baconHubMain.aimbot.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.aimbot)
 	local req = require
 	local require = function(obj)
@@ -1964,8 +1982,8 @@ local function WDTVMG_fake_script() -- baconHubMain.aimbot.LocalScript
 		end
 	end)
 end
-coroutine.wrap(WDTVMG_fake_script)()
-local function CYQHX_fake_script() -- baconHubMain.btools.LocalScript 
+coroutine.wrap(ELFMZLV_fake_script)()
+local function UCVP_fake_script() -- baconHubMain.btools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.btools)
 	local req = require
 	local require = function(obj)
@@ -1976,7 +1994,7 @@ local function CYQHX_fake_script() -- baconHubMain.btools.LocalScript
 		return req(obj)
 	end
 
-	local player = game.Players.LocalPlayer
+	local player = game:GetService("Players").LocalPlayer
 	local mouse = player:GetMouse()
 	
 	local btoolsScriptEnabled = false
@@ -2027,8 +2045,8 @@ local function CYQHX_fake_script() -- baconHubMain.btools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(CYQHX_fake_script)()
-local function UXMEHU_fake_script() -- baconHubMain.undoBtools.LocalScript 
+coroutine.wrap(UCVP_fake_script)()
+local function BKWBRZW_fake_script() -- baconHubMain.undoBtools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.undoBtools)
 	local req = require
 	local require = function(obj)
@@ -2039,7 +2057,7 @@ local function UXMEHU_fake_script() -- baconHubMain.undoBtools.LocalScript
 		return req(obj)
 	end
 
-	local player = game.Players.LocalPlayer
+	local player = game:GetService("Players").LocalPlayer
 	local mouse = player:GetMouse()
 	
 	local btoolsVoid = game.ReplicatedStorage:WaitForChild("btoolsVoid")
@@ -2051,8 +2069,8 @@ local function UXMEHU_fake_script() -- baconHubMain.undoBtools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(UXMEHU_fake_script)()
-local function VIXK_fake_script() -- baconHubMain.noclip.LocalScript 
+coroutine.wrap(BKWBRZW_fake_script)()
+local function BVAZV_fake_script() -- baconHubMain.noclip.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.noclip)
 	local req = require
 	local require = function(obj)
@@ -2085,8 +2103,8 @@ local function VIXK_fake_script() -- baconHubMain.noclip.LocalScript
 	
 	
 	function toggleCollision(value) 
-		if (game.Players.LocalPlayer.Character) then
-		for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants())  do
+		if (game:GetService("Players").LocalPlayer.Character) then
+			for _, part in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants())  do
 				if (part:IsA("Part") or part:IsA("MeshPart")) then
 					
 					if ((value == true and (part.Name == "HumanoidRootPart" or part.Name == "UpperTorso" or part.Name == "LowerTorso")) or value == false) then	
@@ -2097,8 +2115,8 @@ local function VIXK_fake_script() -- baconHubMain.noclip.LocalScript
 		end
 	end
 end
-coroutine.wrap(VIXK_fake_script)()
-local function RPSOJE_fake_script() -- baconHubMain.closeMenu.genericESP 
+coroutine.wrap(BVAZV_fake_script)()
+local function EVXS_fake_script() -- baconHubMain.closeMenu.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.closeMenu)
 	local req = require
 	local require = function(obj)
@@ -2110,11 +2128,12 @@ local function RPSOJE_fake_script() -- baconHubMain.closeMenu.genericESP
 	end
 
 	script.Parent.MouseButton1Up:Connect(function()
-		game.Players.LocalPlayer.PlayerGui:WaitForChild("baconHubMain"):Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("baconHubMain"):Destroy()
+		
 	end)
 end
-coroutine.wrap(RPSOJE_fake_script)()
-local function WKHGU_fake_script() -- baconHubMain.TextLabel.LocalScript 
+coroutine.wrap(EVXS_fake_script)()
+local function EKRZJAA_fake_script() -- baconHubMain.TextLabel.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.TextLabel)
 	local req = require
 	local require = function(obj)
@@ -2125,12 +2144,12 @@ local function WKHGU_fake_script() -- baconHubMain.TextLabel.LocalScript
 		return req(obj)
 	end
 
-	local name = game.Players.LocalPlayer.Name
+	local name = game:GetService("Players").LocalPlayer.Name
 	
 	script.Parent.Text = name
 end
-coroutine.wrap(WKHGU_fake_script)()
-local function VGDXT_fake_script() -- baconHubMain.notepad_3.LocalScript 
+coroutine.wrap(EKRZJAA_fake_script)()
+local function KLIE_fake_script() -- baconHubMain.notepad_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.notepad_3)
 	local req = require
 	local require = function(obj)
@@ -2166,7 +2185,7 @@ local function VGDXT_fake_script() -- baconHubMain.notepad_3.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -2227,8 +2246,8 @@ local function VGDXT_fake_script() -- baconHubMain.notepad_3.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(VGDXT_fake_script)()
-local function CENJKOA_fake_script() -- baconHubMain.close_2.LocalScript 
+coroutine.wrap(KLIE_fake_script)()
+local function EHDJ_fake_script() -- baconHubMain.close_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_2)
 	local req = require
 	local require = function(obj)
@@ -2254,8 +2273,8 @@ local function CENJKOA_fake_script() -- baconHubMain.close_2.LocalScript
 	
 	
 end
-coroutine.wrap(CENJKOA_fake_script)()
-local function RISUHS_fake_script() -- baconHubMain.minimize_2.script 
+coroutine.wrap(EHDJ_fake_script)()
+local function YMFIAMX_fake_script() -- baconHubMain.minimize_2.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_2)
 	local req = require
 	local require = function(obj)
@@ -2290,8 +2309,8 @@ local function RISUHS_fake_script() -- baconHubMain.minimize_2.script
 	
 	
 end
-coroutine.wrap(RISUHS_fake_script)()
-local function SDZU_fake_script() -- baconHubMain.music_2.LocalScript 
+coroutine.wrap(YMFIAMX_fake_script)()
+local function NOPBRC_fake_script() -- baconHubMain.music_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.music_2)
 	local req = require
 	local require = function(obj)
@@ -2328,7 +2347,7 @@ local function SDZU_fake_script() -- baconHubMain.music_2.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -2389,8 +2408,8 @@ local function SDZU_fake_script() -- baconHubMain.music_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(SDZU_fake_script)()
-local function ZNIB_fake_script() -- baconHubMain.close_3.LocalScript 
+coroutine.wrap(NOPBRC_fake_script)()
+local function BJSST_fake_script() -- baconHubMain.close_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_3)
 	local req = require
 	local require = function(obj)
@@ -2416,8 +2435,8 @@ local function ZNIB_fake_script() -- baconHubMain.close_3.LocalScript
 	
 	
 end
-coroutine.wrap(ZNIB_fake_script)()
-local function SUEWYT_fake_script() -- baconHubMain.minimize_3.LocalScript 
+coroutine.wrap(BJSST_fake_script)()
+local function FUTQQ_fake_script() -- baconHubMain.minimize_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_3)
 	local req = require
 	local require = function(obj)
@@ -2452,8 +2471,8 @@ local function SUEWYT_fake_script() -- baconHubMain.minimize_3.LocalScript
 	
 	
 end
-coroutine.wrap(SUEWYT_fake_script)()
-local function UQDAW_fake_script() -- baconHubMain.play.LocalScript 
+coroutine.wrap(FUTQQ_fake_script)()
+local function QRQNOWV_fake_script() -- baconHubMain.play.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.play)
 	local req = require
 	local require = function(obj)
@@ -2502,8 +2521,8 @@ local function UQDAW_fake_script() -- baconHubMain.play.LocalScript
 	end)
 	
 end
-coroutine.wrap(UQDAW_fake_script)()
-local function PHASVHD_fake_script() -- baconHubMain.annoy.LocalScript 
+coroutine.wrap(QRQNOWV_fake_script)()
+local function ZIWTE_fake_script() -- baconHubMain.annoy.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.annoy)
 	local req = require
 	local require = function(obj)
@@ -2539,7 +2558,7 @@ local function PHASVHD_fake_script() -- baconHubMain.annoy.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -2600,8 +2619,8 @@ local function PHASVHD_fake_script() -- baconHubMain.annoy.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(PHASVHD_fake_script)()
-local function TFIEH_fake_script() -- baconHubMain.close_4.LocalScript 
+coroutine.wrap(ZIWTE_fake_script)()
+local function RZBJYV_fake_script() -- baconHubMain.close_4.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_4)
 	local req = require
 	local require = function(obj)
@@ -2627,8 +2646,8 @@ local function TFIEH_fake_script() -- baconHubMain.close_4.LocalScript
 	
 	
 end
-coroutine.wrap(TFIEH_fake_script)()
-local function PYQPSXN_fake_script() -- baconHubMain.minimize_4.script 
+coroutine.wrap(RZBJYV_fake_script)()
+local function UDLYBRS_fake_script() -- baconHubMain.minimize_4.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_4)
 	local req = require
 	local require = function(obj)
@@ -2663,8 +2682,8 @@ local function PYQPSXN_fake_script() -- baconHubMain.minimize_4.script
 	
 	
 end
-coroutine.wrap(PYQPSXN_fake_script)()
-local function OHAAXJH_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
+coroutine.wrap(UDLYBRS_fake_script)()
+local function ODMNFLC_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.tpAndSpin)
 	local req = require
 	local require = function(obj)
@@ -2729,8 +2748,8 @@ local function OHAAXJH_fake_script() -- baconHubMain.tpAndSpin.LocalScript
 		end
 	end
 end
-coroutine.wrap(OHAAXJH_fake_script)()
-local function WGSPOE_fake_script() -- baconHubMain.data_2.LocalScript 
+coroutine.wrap(ODMNFLC_fake_script)()
+local function TNYWJZ_fake_script() -- baconHubMain.data_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -2767,7 +2786,7 @@ local function WGSPOE_fake_script() -- baconHubMain.data_2.LocalScript
 	
 	-- Function to handle dragging behavior
 	local function makeDraggable(frame)
-		local mouse = game.Players.LocalPlayer:GetMouse()
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 		local dragging = false
 		local objectPosition = nil
 		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
@@ -2828,8 +2847,8 @@ local function WGSPOE_fake_script() -- baconHubMain.data_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(WGSPOE_fake_script)()
-local function WQIBDF_fake_script() -- baconHubMain.close_5.LocalScript 
+coroutine.wrap(TNYWJZ_fake_script)()
+local function OBKK_fake_script() -- baconHubMain.close_5.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_5)
 	local req = require
 	local require = function(obj)
@@ -2855,8 +2874,8 @@ local function WQIBDF_fake_script() -- baconHubMain.close_5.LocalScript
 	
 	
 end
-coroutine.wrap(WQIBDF_fake_script)()
-local function SULGCT_fake_script() -- baconHubMain.minimize_5.LocalScript 
+coroutine.wrap(OBKK_fake_script)()
+local function LSFWH_fake_script() -- baconHubMain.minimize_5.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_5)
 	local req = require
 	local require = function(obj)
@@ -2891,8 +2910,8 @@ local function SULGCT_fake_script() -- baconHubMain.minimize_5.LocalScript
 	
 	
 end
-coroutine.wrap(SULGCT_fake_script)()
-local function NJNIKU_fake_script() -- baconHubMain.data_2.main 
+coroutine.wrap(LSFWH_fake_script)()
+local function KRXAFC_fake_script() -- baconHubMain.data_2.main 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -2907,10 +2926,10 @@ local function NJNIKU_fake_script() -- baconHubMain.data_2.main
 	
 	
 	while true do
-		if (game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-		script.Parent.hrpCoords.Text = "HRP CFrame Coords: " .. tostring(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.Position)
+		if (game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+			script.Parent.hrpCoords.Text = "HRP CFrame Coords: " .. tostring(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.Position)
 		end
 		wait()
 	end
 end
-coroutine.wrap(NJNIKU_fake_script)()
+coroutine.wrap(KRXAFC_fake_script)()
