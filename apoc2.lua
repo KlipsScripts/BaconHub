@@ -34,7 +34,7 @@ local Gui = {
 --Properties:
 
 Gui.apoc2.Name = "apoc2"
-Gui.apoc2.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
+Gui.apoc2.Parent = guiEmbedLocation:FindFirstChild("baconHubMain")
 Gui.apoc2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.apoc2.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.apoc2.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -212,7 +212,7 @@ Gui.zge.TextSize = 14.000
 
 -- Scripts:
 
-local function NCHUIII_fake_script() -- Gui.apoc2.LocalScript 
+local function VQHMZOG_fake_script() -- Gui.apoc2.LocalScript 
 	local script = Instance.new('LocalScript', Gui.apoc2)
 
 	
@@ -302,8 +302,8 @@ local function NCHUIII_fake_script() -- Gui.apoc2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(NCHUIII_fake_script)()
-local function VZKQZYI_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(VQHMZOG_fake_script)()
+local function XKNBC_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -321,8 +321,8 @@ local function VZKQZYI_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(VZKQZYI_fake_script)()
-local function NAJXE_fake_script() -- Gui.minimize.script 
+coroutine.wrap(XKNBC_fake_script)()
+local function BZGV_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -349,8 +349,8 @@ local function NAJXE_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(NAJXE_fake_script)()
-local function VHDY_fake_script() -- Gui.ESP.carEsp 
+coroutine.wrap(BZGV_fake_script)()
+local function EYRCBA_fake_script() -- Gui.ESP.carEsp 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	--Module Loader
@@ -388,8 +388,8 @@ local function VHDY_fake_script() -- Gui.ESP.carEsp
 		end
 	end)
 end
-coroutine.wrap(VHDY_fake_script)()
-local function NNTMUU_fake_script() -- Gui.apoc2.identifier 
+coroutine.wrap(EYRCBA_fake_script)()
+local function RPJMB_fake_script() -- Gui.apoc2.identifier 
 	local script = Instance.new('LocalScript', Gui.apoc2)
 
 	--Module Loader
@@ -406,8 +406,8 @@ local function NNTMUU_fake_script() -- Gui.apoc2.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(NNTMUU_fake_script)()
-local function BJLG_fake_script() -- Gui.atmosphere.anitFog 
+coroutine.wrap(RPJMB_fake_script)()
+local function ZFBRA_fake_script() -- Gui.atmosphere.anitFog 
 	local script = Instance.new('LocalScript', Gui.atmosphere)
 
 	--Module Loader
@@ -442,8 +442,8 @@ local function BJLG_fake_script() -- Gui.atmosphere.anitFog
 		end
 	end)
 end
-coroutine.wrap(BJLG_fake_script)()
-local function UOEYRDT_fake_script() -- Gui.zge.zombieGunEsp 
+coroutine.wrap(ZFBRA_fake_script)()
+local function IBOMUS_fake_script() -- Gui.zge.zombieGunEsp 
 	local script = Instance.new('LocalScript', Gui.zge)
 
 	--Module Loader
@@ -496,4 +496,4 @@ local function UOEYRDT_fake_script() -- Gui.zge.zombieGunEsp
 	end)
 	
 end
-coroutine.wrap(UOEYRDT_fake_script)()
+coroutine.wrap(IBOMUS_fake_script)()

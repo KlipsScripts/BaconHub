@@ -31,7 +31,7 @@ local Gui = {
 --Properties:
 
 Gui.jailbreak.Name = "jailbreak"
-Gui.jailbreak.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
+Gui.jailbreak.Parent = guiEmbedLocation:FindFirstChild("baconHubMain")
 Gui.jailbreak.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.jailbreak.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Gui.jailbreak.Position = UDim2.new(0.250186086, 0, 0.277312994, 0)
@@ -168,7 +168,7 @@ Gui.icon.Image = "http://www.roblox.com/asset/?id=18246230914"
 
 -- Scripts:
 
-local function YDDN_fake_script() -- Gui.jailbreak.LocalScript 
+local function QFDESYR_fake_script() -- Gui.jailbreak.LocalScript 
 	local script = Instance.new('LocalScript', Gui.jailbreak)
 
 	
@@ -258,8 +258,8 @@ local function YDDN_fake_script() -- Gui.jailbreak.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(YDDN_fake_script)()
-local function HQQJYQM_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(QFDESYR_fake_script)()
+local function YPZWG_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -277,8 +277,8 @@ local function HQQJYQM_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(HQQJYQM_fake_script)()
-local function GYOZLYC_fake_script() -- Gui.minimize.script 
+coroutine.wrap(YPZWG_fake_script)()
+local function LAJV_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -305,8 +305,8 @@ local function GYOZLYC_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(GYOZLYC_fake_script)()
-local function YEEPQ_fake_script() -- Gui.carSuspension.LocalScript 
+coroutine.wrap(LAJV_fake_script)()
+local function KYWLTRE_fake_script() -- Gui.carSuspension.LocalScript 
 	local script = Instance.new('LocalScript', Gui.carSuspension)
 
 	
@@ -331,8 +331,8 @@ local function YEEPQ_fake_script() -- Gui.carSuspension.LocalScript
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(YEEPQ_fake_script)()
-local function CFXSWD_fake_script() -- Gui.jailbreak.identifier 
+coroutine.wrap(KYWLTRE_fake_script)()
+local function MITDFGA_fake_script() -- Gui.jailbreak.identifier 
 	local script = Instance.new('LocalScript', Gui.jailbreak)
 
 	--Module Loader
@@ -349,4 +349,4 @@ local function CFXSWD_fake_script() -- Gui.jailbreak.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(CFXSWD_fake_script)()
+coroutine.wrap(MITDFGA_fake_script)()

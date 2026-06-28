@@ -32,7 +32,7 @@ local Gui = {
 --Properties:
 
 Gui.crewmates.Name = "crewmates"
-Gui.crewmates.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
+Gui.crewmates.Parent = guiEmbedLocation:FindFirstChild("baconHubMain")
 Gui.crewmates.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.crewmates.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.crewmates.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -186,7 +186,7 @@ Gui.icon.Image = "http://www.roblox.com/asset/?id=18241466938"
 
 -- Scripts:
 
-local function PZQR_fake_script() -- Gui.crewmates.LocalScript 
+local function ORREMFL_fake_script() -- Gui.crewmates.LocalScript 
 	local script = Instance.new('LocalScript', Gui.crewmates)
 
 	
@@ -276,8 +276,8 @@ local function PZQR_fake_script() -- Gui.crewmates.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(PZQR_fake_script)()
-local function MCLO_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(ORREMFL_fake_script)()
+local function XDDHOU_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -295,8 +295,8 @@ local function MCLO_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(MCLO_fake_script)()
-local function HMAK_fake_script() -- Gui.minimize.script 
+coroutine.wrap(XDDHOU_fake_script)()
+local function YGOM_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -323,8 +323,8 @@ local function HMAK_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(HMAK_fake_script)()
-local function PJWV_fake_script() -- Gui.ESP.crewmatesESP 
+coroutine.wrap(YGOM_fake_script)()
+local function NAIPB_fake_script() -- Gui.ESP.crewmatesESP 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	--Module Loader
@@ -389,8 +389,8 @@ local function PJWV_fake_script() -- Gui.ESP.crewmatesESP
 	end
 	
 end
-coroutine.wrap(PJWV_fake_script)()
-local function XEPS_fake_script() -- Gui.crewmates.identifier 
+coroutine.wrap(NAIPB_fake_script)()
+local function ROKZ_fake_script() -- Gui.crewmates.identifier 
 	local script = Instance.new('LocalScript', Gui.crewmates)
 
 	--Module Loader
@@ -407,4 +407,4 @@ local function XEPS_fake_script() -- Gui.crewmates.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(XEPS_fake_script)()
+coroutine.wrap(ROKZ_fake_script)()

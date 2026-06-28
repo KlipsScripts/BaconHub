@@ -33,7 +33,7 @@ local Gui = {
 --Properties:
 
 Gui.mm2.Name = "mm2"
-Gui.mm2.Parent = game.Players.LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService("CoreGui"):FindFirstChild("baconHubMain")
+Gui.mm2.Parent = guiEmbedLocation:FindFirstChild("baconHubMain")
 Gui.mm2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Gui.mm2.BorderColor3 = Color3.fromRGB(74, 74, 74)
 Gui.mm2.Position = UDim2.new(0.232009754, 0, 0.105992816, 0)
@@ -199,7 +199,7 @@ Gui.knifeDodge.TextSize = 14.000
 
 -- Scripts:
 
-local function MEQKATY_fake_script() -- Gui.mm2.LocalScript 
+local function EIYLJV_fake_script() -- Gui.mm2.LocalScript 
 	local script = Instance.new('LocalScript', Gui.mm2)
 
 	
@@ -289,8 +289,8 @@ local function MEQKATY_fake_script() -- Gui.mm2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(MEQKATY_fake_script)()
-local function HOCWJCB_fake_script() -- Gui.close.LocalScript 
+coroutine.wrap(EIYLJV_fake_script)()
+local function VDIQKXV_fake_script() -- Gui.close.LocalScript 
 	local script = Instance.new('LocalScript', Gui.close)
 
 	function Click(mouse)
@@ -308,8 +308,8 @@ local function HOCWJCB_fake_script() -- Gui.close.LocalScript
 	
 	
 end
-coroutine.wrap(HOCWJCB_fake_script)()
-local function PQEORIH_fake_script() -- Gui.minimize.script 
+coroutine.wrap(VDIQKXV_fake_script)()
+local function PWFSJ_fake_script() -- Gui.minimize.script 
 	local script = Instance.new('LocalScript', Gui.minimize)
 
 	function Click(mouse)
@@ -336,8 +336,8 @@ local function PQEORIH_fake_script() -- Gui.minimize.script
 	
 	
 end
-coroutine.wrap(PQEORIH_fake_script)()
-local function ZEMSEGY_fake_script() -- Gui.ESP.mm2ESP 
+coroutine.wrap(PWFSJ_fake_script)()
+local function YHJPVNW_fake_script() -- Gui.ESP.mm2ESP 
 	local script = Instance.new('LocalScript', Gui.ESP)
 
 	--Module Loader
@@ -396,8 +396,8 @@ local function ZEMSEGY_fake_script() -- Gui.ESP.mm2ESP
 	end
 	
 end
-coroutine.wrap(ZEMSEGY_fake_script)()
-local function SSXBG_fake_script() -- Gui.knifeDodge.mm2KnifeDodge 
+coroutine.wrap(YHJPVNW_fake_script)()
+local function GXGUW_fake_script() -- Gui.knifeDodge.mm2KnifeDodge 
 	local script = Instance.new('LocalScript', Gui.knifeDodge)
 
 	local enabled = false
@@ -464,8 +464,8 @@ local function SSXBG_fake_script() -- Gui.knifeDodge.mm2KnifeDodge
 	
 	
 end
-coroutine.wrap(SSXBG_fake_script)()
-local function RNVZUI_fake_script() -- Gui.mm2.identifier 
+coroutine.wrap(GXGUW_fake_script)()
+local function PGUQZ_fake_script() -- Gui.mm2.identifier 
 	local script = Instance.new('LocalScript', Gui.mm2)
 
 	--Module Loader
@@ -482,4 +482,4 @@ local function RNVZUI_fake_script() -- Gui.mm2.identifier
 	script.Parent.Parent = menu
 	main.registerNewScript(script.Parent.Name, image, script.Parent)
 end
-coroutine.wrap(RNVZUI_fake_script)()
+coroutine.wrap(PGUQZ_fake_script)()
