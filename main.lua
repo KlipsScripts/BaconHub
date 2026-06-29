@@ -47,6 +47,8 @@ local baconHubMain = {
 	undoBtools = Instance.new("TextButton"),
 	noclip = Instance.new("TextButton"),
 	closeMenu = Instance.new("TextButton"),
+	dropDownPls = Instance.new("Frame"),
+	teleportToPlayer = Instance.new("TextButton"),
 	TextLabel = Instance.new("TextLabel"),
 	TextLabel_2 = Instance.new("TextLabel"),
 	icon = Instance.new("ImageLabel"),
@@ -200,7 +202,6 @@ baconHubMain.settings_2.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
 baconHubMain.settings_2.BorderColor3 = Color3.fromRGB(241, 241, 241)
 baconHubMain.settings_2.Position = UDim2.new(0.577505887, 0, 0.25303489, 0)
 baconHubMain.settings_2.Size = UDim2.new(0, 601, 0, 561)
-baconHubMain.settings_2.Visible = false
 
 baconHubMain.close.Name = "close"
 baconHubMain.close.Parent = baconHubMain.settings_2
@@ -447,6 +448,25 @@ baconHubMain.closeMenu.Font = Enum.Font.SourceSans
 baconHubMain.closeMenu.Text = "Close Menu"
 baconHubMain.closeMenu.TextColor3 = Color3.fromRGB(0, 0, 0)
 baconHubMain.closeMenu.TextSize = 14.000
+
+baconHubMain.dropDownPls.Name = "dropDownPls"
+baconHubMain.dropDownPls.Parent = baconHubMain.window
+baconHubMain.dropDownPls.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+baconHubMain.dropDownPls.BorderColor3 = Color3.fromRGB(0, 0, 0)
+baconHubMain.dropDownPls.Position = UDim2.new(0.0299999993, 0, 0.409999996, 0)
+baconHubMain.dropDownPls.Size = UDim2.new(0, 200, 0, 20)
+
+baconHubMain.teleportToPlayer.Name = "teleportToPlayer"
+baconHubMain.teleportToPlayer.Parent = baconHubMain.window
+baconHubMain.teleportToPlayer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+baconHubMain.teleportToPlayer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+baconHubMain.teleportToPlayer.BorderSizePixel = 0
+baconHubMain.teleportToPlayer.Position = UDim2.new(0.0299500823, 0, 0.465060234, 0)
+baconHubMain.teleportToPlayer.Size = UDim2.new(0, 200, 0, 29)
+baconHubMain.teleportToPlayer.Font = Enum.Font.SourceSans
+baconHubMain.teleportToPlayer.Text = "Teleport"
+baconHubMain.teleportToPlayer.TextColor3 = Color3.fromRGB(0, 0, 0)
+baconHubMain.teleportToPlayer.TextSize = 14.000
 
 baconHubMain.TextLabel.Parent = baconHubMain.settings_2
 baconHubMain.TextLabel.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
@@ -1032,6 +1052,130 @@ do -- baconHubMain.baconHubMain.mainFunctions
 	local function module_script()
 		local main = {}
 		
+		
+		function main.droppedOptionClicked(dropDownFolder, option)
+			dropDownFolder:WaitForChild("labelFrame").Text = option
+			local scrollingFrame = dropDownFolder:FindFirstChild("scrollingFrame")
+		
+			if (scrollingFrame) then
+				dropDownFolder:WaitForChild("dropDownArrow").Text = "V"
+				scrollingFrame:Destroy()
+			end
+		end
+		
+		
+		function main.renderDroppedOptions(dropDownFolder, options, maxHeight)
+			local droppedDown = dropDownFolder:FindFirstChild("scrollingFrame")
+		
+			if (not droppedDown) then
+				dropDownFolder:WaitForChild("dropDownArrow").Text = "-"
+		
+				local itemHeight = dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
+				local sFHS = dropDownFolder:WaitForChild("labelFrame").Position.Y.Offset + dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
+				local totalHeight = (#options * itemHeight)
+				local usedHeight = totalHeight
+		
+				if (totalHeight > maxHeight) then
+					usedHeight = maxHeight
+				end
+		
+				local scrollingFrame = Instance.new("ScrollingFrame")
+				scrollingFrame.Position = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Position.X.Offset, 0, sFHS)
+				scrollingFrame.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset+20, 0, usedHeight)
+				scrollingFrame.Parent = dropDownFolder
+				scrollingFrame.BorderSizePixel = 0 
+				scrollingFrame.Name = "scrollingFrame"
+				scrollingFrame.CanvasSize = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset, 0, totalHeight)
+		
+				local listLayout = Instance.new("UIListLayout")
+				listLayout.Parent = scrollingFrame
+		
+				for i, option in pairs(options) do
+					local renderedOption = Instance.new("TextButton")
+					renderedOption.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset, 0, dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset)
+					renderedOption.Text = option
+					renderedOption.Parent = scrollingFrame
+					renderedOption.Name = i
+		
+					renderedOption.MouseButton1Up:Connect(function()
+						main.droppedOptionClicked(dropDownFolder, renderedOption.Text)
+					end)
+				end
+			else
+				dropDownFolder:WaitForChild("dropDownArrow").Text = "V"
+				droppedDown:Destroy()
+			end
+		
+		end
+		
+		
+		
+		function main.createDropDown(holder, x, y, width, height, options, starter, maxHeight, mainColor, baseObject, placeholder, folderName)
+			if (baseObject) then
+				
+				local offsetDerivedFromScalePos = 0
+				if (baseObject.Position.X.Scale > 0) then
+					offsetDerivedFromScalePos = baseObject.Position.X.Scale * baseObject.AbsolutePosition.X
+				end
+				local offsetDerivedFromScalePosY = 0
+				if (baseObject.Position.Y.Scale > 0) then
+					offsetDerivedFromScalePosY = baseObject.Position.Y.Scale * baseObject.AbsolutePosition.Y
+				end
+				baseObject.Position = UDim2.new(0, baseObject.Position.X.Offset + offsetDerivedFromScalePos, 0, baseObject.Position.Y.Offset + offsetDerivedFromScalePosY)
+				
+				
+				local offsetDerivedFromScaleSize = 0
+				if (baseObject.Size.X.Scale > 0) then
+					offsetDerivedFromScaleSize = baseObject.Size.X.Scale * baseObject.AbsoluteSize.X
+				end
+				local offsetDerivedFromScaleSizeY = 0
+				if (baseObject.Size.Y.Scale > 0) then
+					offsetDerivedFromScaleSizeY = baseObject.Size.Y.Scale * baseObject.AbsoluteSize.Y
+				end
+				baseObject.Size = UDim2.new(0, baseObject.Size.X.Offset + offsetDerivedFromScaleSize, 0, baseObject.Size.Y.Offset + offsetDerivedFromScaleSizeY)
+				
+				
+				
+				x = baseObject.Position.X.Offset
+				y = baseObject.Position.Y.Offset
+				print("x: " .. x .. " y: " .. y)
+				width = baseObject.Size.Width.Offset
+				height = baseObject.Size.Height.Offset
+				baseObject:Destroy()
+			end
+			
+			
+			local dropDownFolder = Instance.new("Folder")
+			dropDownFolder.Parent = holder
+			dropDownFolder.Name = folderName
+		
+			local labelFrame = Instance.new("TextLabel")
+			labelFrame.Text = placeholder
+			labelFrame.Size = UDim2.new(0, width-20, 0, height)
+			labelFrame.BackgroundColor3 = mainColor
+			labelFrame.Position = UDim2.new(0, x, 0, y)
+			labelFrame.Parent = dropDownFolder
+			labelFrame.BorderSizePixel = 0 
+			labelFrame.TextScaled = true
+			labelFrame.Name = "labelFrame"
+		
+			local dropDownArrow = Instance.new("TextButton")
+			dropDownArrow.Text = "V"
+			dropDownArrow.Position = UDim2.new(0, x+width-20, 0, y)
+			dropDownArrow.Size = UDim2.new(0, 20, 0, height)
+			dropDownArrow.Parent = dropDownFolder
+			dropDownArrow.BackgroundColor3 = mainColor
+			dropDownArrow.BorderSizePixel = 0
+			dropDownArrow.Name = "dropDownArrow"
+		
+			dropDownArrow.MouseButton1Up:Connect(function()
+				main.renderDroppedOptions(dropDownFolder, options, maxHeight)
+			end)
+		
+		end
+		
+		
+		
 		function main.findMainPath()
 			return game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService('CoreGui'):FindFirstChild("baconHubMain") --MUST REMAIN DIFFERENT THAN GuiToLuaSTRING
 		end
@@ -1143,6 +1287,130 @@ do -- baconHubMain.baconHubMain.mainFunctions
 	end
 	fake_module_scripts[script] = module_script
 	script.Source = [[local main = {}
+	
+	
+	function main.droppedOptionClicked(dropDownFolder, option)
+		dropDownFolder:WaitForChild("labelFrame").Text = option
+		local scrollingFrame = dropDownFolder:FindFirstChild("scrollingFrame")
+	
+		if (scrollingFrame) then
+			dropDownFolder:WaitForChild("dropDownArrow").Text = "V"
+			scrollingFrame:Destroy()
+		end
+	end
+	
+	
+	function main.renderDroppedOptions(dropDownFolder, options, maxHeight)
+		local droppedDown = dropDownFolder:FindFirstChild("scrollingFrame")
+	
+		if (not droppedDown) then
+			dropDownFolder:WaitForChild("dropDownArrow").Text = "-"
+	
+			local itemHeight = dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
+			local sFHS = dropDownFolder:WaitForChild("labelFrame").Position.Y.Offset + dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
+			local totalHeight = (#options * itemHeight)
+			local usedHeight = totalHeight
+	
+			if (totalHeight > maxHeight) then
+				usedHeight = maxHeight
+			end
+	
+			local scrollingFrame = Instance.new("ScrollingFrame")
+			scrollingFrame.Position = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Position.X.Offset, 0, sFHS)
+			scrollingFrame.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset+20, 0, usedHeight)
+			scrollingFrame.Parent = dropDownFolder
+			scrollingFrame.BorderSizePixel = 0 
+			scrollingFrame.Name = "scrollingFrame"
+			scrollingFrame.CanvasSize = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset, 0, totalHeight)
+	
+			local listLayout = Instance.new("UIListLayout")
+			listLayout.Parent = scrollingFrame
+	
+			for i, option in pairs(options) do
+				local renderedOption = Instance.new("TextButton")
+				renderedOption.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset, 0, dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset)
+				renderedOption.Text = option
+				renderedOption.Parent = scrollingFrame
+				renderedOption.Name = i
+	
+				renderedOption.MouseButton1Up:Connect(function()
+					main.droppedOptionClicked(dropDownFolder, renderedOption.Text)
+				end)
+			end
+		else
+			dropDownFolder:WaitForChild("dropDownArrow").Text = "V"
+			droppedDown:Destroy()
+		end
+	
+	end
+	
+	
+	
+	function main.createDropDown(holder, x, y, width, height, options, starter, maxHeight, mainColor, baseObject, placeholder, folderName)
+		if (baseObject) then
+			
+			local offsetDerivedFromScalePos = 0
+			if (baseObject.Position.X.Scale > 0) then
+				offsetDerivedFromScalePos = baseObject.Position.X.Scale * baseObject.AbsolutePosition.X
+			end
+			local offsetDerivedFromScalePosY = 0
+			if (baseObject.Position.Y.Scale > 0) then
+				offsetDerivedFromScalePosY = baseObject.Position.Y.Scale * baseObject.AbsolutePosition.Y
+			end
+			baseObject.Position = UDim2.new(0, baseObject.Position.X.Offset + offsetDerivedFromScalePos, 0, baseObject.Position.Y.Offset + offsetDerivedFromScalePosY)
+			
+			
+			local offsetDerivedFromScaleSize = 0
+			if (baseObject.Size.X.Scale > 0) then
+				offsetDerivedFromScaleSize = baseObject.Size.X.Scale * baseObject.AbsoluteSize.X
+			end
+			local offsetDerivedFromScaleSizeY = 0
+			if (baseObject.Size.Y.Scale > 0) then
+				offsetDerivedFromScaleSizeY = baseObject.Size.Y.Scale * baseObject.AbsoluteSize.Y
+			end
+			baseObject.Size = UDim2.new(0, baseObject.Size.X.Offset + offsetDerivedFromScaleSize, 0, baseObject.Size.Y.Offset + offsetDerivedFromScaleSizeY)
+			
+			
+			
+			x = baseObject.Position.X.Offset
+			y = baseObject.Position.Y.Offset
+			print("x: " .. x .. " y: " .. y)
+			width = baseObject.Size.Width.Offset
+			height = baseObject.Size.Height.Offset
+			baseObject:Destroy()
+		end
+		
+		
+		local dropDownFolder = Instance.new("Folder")
+		dropDownFolder.Parent = holder
+		dropDownFolder.Name = folderName
+	
+		local labelFrame = Instance.new("TextLabel")
+		labelFrame.Text = placeholder
+		labelFrame.Size = UDim2.new(0, width-20, 0, height)
+		labelFrame.BackgroundColor3 = mainColor
+		labelFrame.Position = UDim2.new(0, x, 0, y)
+		labelFrame.Parent = dropDownFolder
+		labelFrame.BorderSizePixel = 0 
+		labelFrame.TextScaled = true
+		labelFrame.Name = "labelFrame"
+	
+		local dropDownArrow = Instance.new("TextButton")
+		dropDownArrow.Text = "V"
+		dropDownArrow.Position = UDim2.new(0, x+width-20, 0, y)
+		dropDownArrow.Size = UDim2.new(0, 20, 0, height)
+		dropDownArrow.Parent = dropDownFolder
+		dropDownArrow.BackgroundColor3 = mainColor
+		dropDownArrow.BorderSizePixel = 0
+		dropDownArrow.Name = "dropDownArrow"
+	
+		dropDownArrow.MouseButton1Up:Connect(function()
+			main.renderDroppedOptions(dropDownFolder, options, maxHeight)
+		end)
+	
+	end
+	
+	
 	
 	function main.findMainPath()
 		return game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("baconHubMain") or game:GetService('CoreGui'):FindFirstChild("baconHubMain") --MUST REMAIN DIFFERENT THAN GuiToLuaSTRING
@@ -1258,7 +1526,7 @@ end
 
 -- Scripts:
 
-local function OWHESFE_fake_script() -- baconHubMain.Frame_2.opener 
+local function OTKA_fake_script() -- baconHubMain.Frame_2.opener 
 	local script = Instance.new('LocalScript', baconHubMain.Frame_2)
 	local req = require
 	local require = function(obj)
@@ -1281,8 +1549,8 @@ local function OWHESFE_fake_script() -- baconHubMain.Frame_2.opener
 		end
 	end
 end
-coroutine.wrap(OWHESFE_fake_script)()
-local function CULEG_fake_script() -- baconHubMain.win10taskbar.LocalScript 
+coroutine.wrap(OTKA_fake_script)()
+local function MBFCND_fake_script() -- baconHubMain.win10taskbar.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1300,8 +1568,8 @@ local function CULEG_fake_script() -- baconHubMain.win10taskbar.LocalScript
 		layer.Name = "windows"
 	end
 end
-coroutine.wrap(CULEG_fake_script)()
-local function ZDRLHO_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
+coroutine.wrap(MBFCND_fake_script)()
+local function GBZNFNJ_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.windowsHomeButton)
 	local req = require
 	local require = function(obj)
@@ -1326,8 +1594,8 @@ local function ZDRLHO_fake_script() -- baconHubMain.windowsHomeButton.LocalScrip
 	
 	
 end
-coroutine.wrap(ZDRLHO_fake_script)()
-local function ZJISYF_fake_script() -- baconHubMain.win10taskbar.draggable 
+coroutine.wrap(GBZNFNJ_fake_script)()
+local function BKAY_fake_script() -- baconHubMain.win10taskbar.draggable 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1425,8 +1693,8 @@ local function ZJISYF_fake_script() -- baconHubMain.win10taskbar.draggable
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(ZJISYF_fake_script)()
-local function XOOEU_fake_script() -- baconHubMain.win10.LocalScript 
+coroutine.wrap(BKAY_fake_script)()
+local function JHFIAKZ_fake_script() -- baconHubMain.win10.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10)
 	local req = require
 	local require = function(obj)
@@ -1444,8 +1712,8 @@ local function XOOEU_fake_script() -- baconHubMain.win10.LocalScript
 	layer.Name = "layer"
 	end
 end
-coroutine.wrap(XOOEU_fake_script)()
-local function HXWSY_fake_script() -- baconHubMain.settings_2.LocalScript 
+coroutine.wrap(JHFIAKZ_fake_script)()
+local function YHPHCW_fake_script() -- baconHubMain.settings_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.settings_2)
 	local req = require
 	local require = function(obj)
@@ -1543,8 +1811,8 @@ local function HXWSY_fake_script() -- baconHubMain.settings_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(HXWSY_fake_script)()
-local function LHXNW_fake_script() -- baconHubMain.close.LocalScript 
+coroutine.wrap(YHPHCW_fake_script)()
+local function MIEIR_fake_script() -- baconHubMain.close.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close)
 	local req = require
 	local require = function(obj)
@@ -1570,8 +1838,8 @@ local function LHXNW_fake_script() -- baconHubMain.close.LocalScript
 	
 	
 end
-coroutine.wrap(LHXNW_fake_script)()
-local function MYBY_fake_script() -- baconHubMain.minimize.LocalScript 
+coroutine.wrap(MIEIR_fake_script)()
+local function VMFUIWO_fake_script() -- baconHubMain.minimize.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize)
 	local req = require
 	local require = function(obj)
@@ -1606,8 +1874,8 @@ local function MYBY_fake_script() -- baconHubMain.minimize.LocalScript
 	
 	
 end
-coroutine.wrap(MYBY_fake_script)()
-local function ZRTX_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
+coroutine.wrap(VMFUIWO_fake_script)()
+local function TOOJJ_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.walkspeedButton)
 	local req = require
 	local require = function(obj)
@@ -1623,8 +1891,8 @@ local function ZRTX_fake_script() -- baconHubMain.walkspeedButton.LocalScript
 		game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.walkspeedValue.Text
 	end)
 end
-coroutine.wrap(ZRTX_fake_script)()
-local function NKJTPV_fake_script() -- baconHubMain.spinButton.LocalScript 
+coroutine.wrap(TOOJJ_fake_script)()
+local function LDETE_fake_script() -- baconHubMain.spinButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.spinButton)
 	local req = require
 	local require = function(obj)
@@ -1684,8 +1952,8 @@ local function NKJTPV_fake_script() -- baconHubMain.spinButton.LocalScript
 	
 	end)
 end
-coroutine.wrap(NKJTPV_fake_script)()
-local function AOGX_fake_script() -- baconHubMain.flyButton.LocalScript 
+coroutine.wrap(LDETE_fake_script)()
+local function QSAINU_fake_script() -- baconHubMain.flyButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.flyButton)
 	local req = require
 	local require = function(obj)
@@ -1815,8 +2083,8 @@ local function AOGX_fake_script() -- baconHubMain.flyButton.LocalScript
 	end)
 	
 end
-coroutine.wrap(AOGX_fake_script)()
-local function QDFVRC_fake_script() -- baconHubMain.espScript.genericESP 
+coroutine.wrap(QSAINU_fake_script)()
+local function YYTYDD_fake_script() -- baconHubMain.espScript.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.espScript)
 	local req = require
 	local require = function(obj)
@@ -1865,8 +2133,8 @@ local function QDFVRC_fake_script() -- baconHubMain.espScript.genericESP
 	end
 	
 end
-coroutine.wrap(QDFVRC_fake_script)()
-local function ZOOAZO_fake_script() -- baconHubMain.fullbright.LocalScript 
+coroutine.wrap(YYTYDD_fake_script)()
+local function BRNH_fake_script() -- baconHubMain.fullbright.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.fullbright)
 	local req = require
 	local require = function(obj)
@@ -1907,8 +2175,8 @@ local function ZOOAZO_fake_script() -- baconHubMain.fullbright.LocalScript
 		end
 	end)
 end
-coroutine.wrap(ZOOAZO_fake_script)()
-local function ELFMZLV_fake_script() -- baconHubMain.aimbot.LocalScript 
+coroutine.wrap(BRNH_fake_script)()
+local function ZLVD_fake_script() -- baconHubMain.aimbot.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.aimbot)
 	local req = require
 	local require = function(obj)
@@ -1982,8 +2250,8 @@ local function ELFMZLV_fake_script() -- baconHubMain.aimbot.LocalScript
 		end
 	end)
 end
-coroutine.wrap(ELFMZLV_fake_script)()
-local function UCVP_fake_script() -- baconHubMain.btools.LocalScript 
+coroutine.wrap(ZLVD_fake_script)()
+local function HYDC_fake_script() -- baconHubMain.btools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.btools)
 	local req = require
 	local require = function(obj)
@@ -2045,8 +2313,8 @@ local function UCVP_fake_script() -- baconHubMain.btools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(UCVP_fake_script)()
-local function BKWBRZW_fake_script() -- baconHubMain.undoBtools.LocalScript 
+coroutine.wrap(HYDC_fake_script)()
+local function EKYTB_fake_script() -- baconHubMain.undoBtools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.undoBtools)
 	local req = require
 	local require = function(obj)
@@ -2069,8 +2337,8 @@ local function BKWBRZW_fake_script() -- baconHubMain.undoBtools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(BKWBRZW_fake_script)()
-local function BVAZV_fake_script() -- baconHubMain.noclip.LocalScript 
+coroutine.wrap(EKYTB_fake_script)()
+local function IMVYILG_fake_script() -- baconHubMain.noclip.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.noclip)
 	local req = require
 	local require = function(obj)
@@ -2115,8 +2383,8 @@ local function BVAZV_fake_script() -- baconHubMain.noclip.LocalScript
 		end
 	end
 end
-coroutine.wrap(BVAZV_fake_script)()
-local function EVXS_fake_script() -- baconHubMain.closeMenu.genericESP 
+coroutine.wrap(IMVYILG_fake_script)()
+local function SEWB_fake_script() -- baconHubMain.closeMenu.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.closeMenu)
 	local req = require
 	local require = function(obj)
@@ -2132,8 +2400,53 @@ local function EVXS_fake_script() -- baconHubMain.closeMenu.genericESP
 		
 	end)
 end
-coroutine.wrap(EVXS_fake_script)()
-local function EKRZJAA_fake_script() -- baconHubMain.TextLabel.LocalScript 
+coroutine.wrap(SEWB_fake_script)()
+local function MOCYVD_fake_script() -- baconHubMain.dropDownPls.requestDropDown 
+	local script = Instance.new('LocalScript', baconHubMain.dropDownPls)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local guiLocation = guiEmbedLocation:FindFirstChild("baconHubMain")
+	local main = require(guiLocation.mainFunctions)
+	
+	
+	local playerNames = {}
+	for _, player in pairs(game:GetService("Players"):GetChildren()) do
+		playerNames[#playerNames+1] = player.Name
+	end
+	
+	
+	main.createDropDown(script.Parent.Parent, _, _, _, _, playerNames , 1, 120, Color3.new(0.133333, 1, 0), script.Parent, "Select Player", "teleportPlayerDropDown")
+end
+coroutine.wrap(MOCYVD_fake_script)()
+local function LBIYFW_fake_script() -- baconHubMain.teleportToPlayer.teleportTime 
+	local script = Instance.new('LocalScript', baconHubMain.teleportToPlayer)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	script.Parent.MouseButton1Up:Connect(function()
+		local dropDown = script.Parent.Parent:FindFirstChild("teleportPlayerDropDown")
+		if (dropDown) then
+			local playerName = dropDown:WaitForChild("labelFrame").Text
+			local player = game:GetService("Players"):FindFirstChild(playerName).Character
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = player.HumanoidRootPart.CFrame
+		end
+	end)
+end
+coroutine.wrap(LBIYFW_fake_script)()
+local function SCKAVZP_fake_script() -- baconHubMain.TextLabel.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.TextLabel)
 	local req = require
 	local require = function(obj)
@@ -2148,8 +2461,8 @@ local function EKRZJAA_fake_script() -- baconHubMain.TextLabel.LocalScript
 	
 	script.Parent.Text = name
 end
-coroutine.wrap(EKRZJAA_fake_script)()
-local function KLIE_fake_script() -- baconHubMain.notepad_3.LocalScript 
+coroutine.wrap(SCKAVZP_fake_script)()
+local function PDFLICJ_fake_script() -- baconHubMain.notepad_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.notepad_3)
 	local req = require
 	local require = function(obj)
@@ -2246,8 +2559,8 @@ local function KLIE_fake_script() -- baconHubMain.notepad_3.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(KLIE_fake_script)()
-local function EHDJ_fake_script() -- baconHubMain.close_2.LocalScript 
+coroutine.wrap(PDFLICJ_fake_script)()
+local function ABBRC_fake_script() -- baconHubMain.close_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_2)
 	local req = require
 	local require = function(obj)
@@ -2273,8 +2586,8 @@ local function EHDJ_fake_script() -- baconHubMain.close_2.LocalScript
 	
 	
 end
-coroutine.wrap(EHDJ_fake_script)()
-local function YMFIAMX_fake_script() -- baconHubMain.minimize_2.script 
+coroutine.wrap(ABBRC_fake_script)()
+local function HHQM_fake_script() -- baconHubMain.minimize_2.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_2)
 	local req = require
 	local require = function(obj)
@@ -2309,8 +2622,8 @@ local function YMFIAMX_fake_script() -- baconHubMain.minimize_2.script
 	
 	
 end
-coroutine.wrap(YMFIAMX_fake_script)()
-local function NOPBRC_fake_script() -- baconHubMain.music_2.LocalScript 
+coroutine.wrap(HHQM_fake_script)()
+local function YTBRUI_fake_script() -- baconHubMain.music_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.music_2)
 	local req = require
 	local require = function(obj)
@@ -2408,8 +2721,8 @@ local function NOPBRC_fake_script() -- baconHubMain.music_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(NOPBRC_fake_script)()
-local function BJSST_fake_script() -- baconHubMain.close_3.LocalScript 
+coroutine.wrap(YTBRUI_fake_script)()
+local function UGTZQ_fake_script() -- baconHubMain.close_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_3)
 	local req = require
 	local require = function(obj)
@@ -2435,8 +2748,8 @@ local function BJSST_fake_script() -- baconHubMain.close_3.LocalScript
 	
 	
 end
-coroutine.wrap(BJSST_fake_script)()
-local function FUTQQ_fake_script() -- baconHubMain.minimize_3.LocalScript 
+coroutine.wrap(UGTZQ_fake_script)()
+local function LUMOQPR_fake_script() -- baconHubMain.minimize_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_3)
 	local req = require
 	local require = function(obj)
@@ -2471,8 +2784,8 @@ local function FUTQQ_fake_script() -- baconHubMain.minimize_3.LocalScript
 	
 	
 end
-coroutine.wrap(FUTQQ_fake_script)()
-local function QRQNOWV_fake_script() -- baconHubMain.play.LocalScript 
+coroutine.wrap(LUMOQPR_fake_script)()
+local function OFHOVW_fake_script() -- baconHubMain.play.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.play)
 	local req = require
 	local require = function(obj)
@@ -2521,8 +2834,8 @@ local function QRQNOWV_fake_script() -- baconHubMain.play.LocalScript
 	end)
 	
 end
-coroutine.wrap(QRQNOWV_fake_script)()
-local function ZIWTE_fake_script() -- baconHubMain.annoy.LocalScript 
+coroutine.wrap(OFHOVW_fake_script)()
+local function ZFOKOC_fake_script() -- baconHubMain.annoy.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.annoy)
 	local req = require
 	local require = function(obj)
@@ -2619,8 +2932,8 @@ local function ZIWTE_fake_script() -- baconHubMain.annoy.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(ZIWTE_fake_script)()
-local function RZBJYV_fake_script() -- baconHubMain.close_4.LocalScript 
+coroutine.wrap(ZFOKOC_fake_script)()
+local function BVLDF_fake_script() -- baconHubMain.close_4.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_4)
 	local req = require
 	local require = function(obj)
@@ -2646,8 +2959,8 @@ local function RZBJYV_fake_script() -- baconHubMain.close_4.LocalScript
 	
 	
 end
-coroutine.wrap(RZBJYV_fake_script)()
-local function UDLYBRS_fake_script() -- baconHubMain.minimize_4.script 
+coroutine.wrap(BVLDF_fake_script)()
+local function EDXDEQ_fake_script() -- baconHubMain.minimize_4.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_4)
 	local req = require
 	local require = function(obj)
@@ -2682,8 +2995,8 @@ local function UDLYBRS_fake_script() -- baconHubMain.minimize_4.script
 	
 	
 end
-coroutine.wrap(UDLYBRS_fake_script)()
-local function ODMNFLC_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
+coroutine.wrap(EDXDEQ_fake_script)()
+local function FFECI_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.tpAndSpin)
 	local req = require
 	local require = function(obj)
@@ -2748,8 +3061,8 @@ local function ODMNFLC_fake_script() -- baconHubMain.tpAndSpin.LocalScript
 		end
 	end
 end
-coroutine.wrap(ODMNFLC_fake_script)()
-local function TNYWJZ_fake_script() -- baconHubMain.data_2.LocalScript 
+coroutine.wrap(FFECI_fake_script)()
+local function WWFO_fake_script() -- baconHubMain.data_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -2847,8 +3160,8 @@ local function TNYWJZ_fake_script() -- baconHubMain.data_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(TNYWJZ_fake_script)()
-local function OBKK_fake_script() -- baconHubMain.close_5.LocalScript 
+coroutine.wrap(WWFO_fake_script)()
+local function LNORWRC_fake_script() -- baconHubMain.close_5.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_5)
 	local req = require
 	local require = function(obj)
@@ -2874,8 +3187,8 @@ local function OBKK_fake_script() -- baconHubMain.close_5.LocalScript
 	
 	
 end
-coroutine.wrap(OBKK_fake_script)()
-local function LSFWH_fake_script() -- baconHubMain.minimize_5.LocalScript 
+coroutine.wrap(LNORWRC_fake_script)()
+local function YMNP_fake_script() -- baconHubMain.minimize_5.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_5)
 	local req = require
 	local require = function(obj)
@@ -2910,8 +3223,8 @@ local function LSFWH_fake_script() -- baconHubMain.minimize_5.LocalScript
 	
 	
 end
-coroutine.wrap(LSFWH_fake_script)()
-local function KRXAFC_fake_script() -- baconHubMain.data_2.main 
+coroutine.wrap(YMNP_fake_script)()
+local function SAWJON_fake_script() -- baconHubMain.data_2.main 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -2932,4 +3245,4 @@ local function KRXAFC_fake_script() -- baconHubMain.data_2.main
 		wait()
 	end
 end
-coroutine.wrap(KRXAFC_fake_script)()
+coroutine.wrap(SAWJON_fake_script)()
