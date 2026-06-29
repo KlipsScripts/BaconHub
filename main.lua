@@ -79,27 +79,12 @@ local baconHubMain = {
 	audioBox = Instance.new("TextBox"),
 	play = Instance.new("ImageButton"),
 	icon_3 = Instance.new("ImageLabel"),
-	annoy = Instance.new("Frame"),
+	data_2 = Instance.new("Frame"),
 	close_4 = Instance.new("TextButton"),
 	minimize_4 = Instance.new("TextButton"),
-	TextLabel_4 = Instance.new("TextLabel"),
-	notepad_5 = Instance.new("ImageLabel"),
-	line_2 = Instance.new("Frame"),
-	File_2 = Instance.new("TextButton"),
-	Edit_2 = Instance.new("TextButton"),
-	Format_2 = Instance.new("TextButton"),
-	View_2 = Instance.new("TextButton"),
-	Help_2 = Instance.new("TextButton"),
-	icon_4 = Instance.new("ImageLabel"),
-	Frame_4 = Instance.new("Frame"),
-	UIGridLayout_3 = Instance.new("UIGridLayout"),
-	tpAndSpin = Instance.new("TextButton"),
-	data_2 = Instance.new("Frame"),
-	close_5 = Instance.new("TextButton"),
-	minimize_5 = Instance.new("TextButton"),
 	windowTitle_3 = Instance.new("TextLabel"),
-	icon_5 = Instance.new("ImageLabel"),
-	notepad_6 = Instance.new("ImageLabel"),
+	icon_4 = Instance.new("ImageLabel"),
+	notepad_5 = Instance.new("ImageLabel"),
 	hrpCoords = Instance.new("TextLabel"),
 	placeId = Instance.new("TextLabel"),
 }
@@ -804,154 +789,6 @@ baconHubMain.icon_3.Size = UDim2.new(0, 17, 0, 20)
 baconHubMain.icon_3.Visible = false
 baconHubMain.icon_3.Image = "http://www.roblox.com/asset/?id=18238210524"
 
-baconHubMain.annoy.Name = "annoy"
-baconHubMain.annoy.Parent = baconHubMain.baconHubMain
-baconHubMain.annoy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.annoy.BorderColor3 = Color3.fromRGB(74, 74, 74)
-baconHubMain.annoy.Position = UDim2.new(0.509655714, 0, 0.266870528, 0)
-baconHubMain.annoy.Size = UDim2.new(0, 668, 0, 523)
-baconHubMain.annoy.Visible = false
-
-baconHubMain.close_4.Name = "close"
-baconHubMain.close_4.Parent = baconHubMain.annoy
-baconHubMain.close_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.close_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.close_4.Position = UDim2.new(0.940816343, 0, 0.00733577227, 0)
-baconHubMain.close_4.Size = UDim2.new(0, 29, 0, 24)
-baconHubMain.close_4.Font = Enum.Font.SourceSans
-baconHubMain.close_4.Text = "X"
-baconHubMain.close_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.close_4.TextSize = 14.000
-
-baconHubMain.minimize_4.Name = "minimize"
-baconHubMain.minimize_4.Parent = baconHubMain.annoy
-baconHubMain.minimize_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.minimize_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.minimize_4.Position = UDim2.new(0.881632745, 0, 0.00733577227, 0)
-baconHubMain.minimize_4.Size = UDim2.new(0, 29, 0, 24)
-baconHubMain.minimize_4.Font = Enum.Font.SourceSans
-baconHubMain.minimize_4.Text = "-"
-baconHubMain.minimize_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.minimize_4.TextSize = 29.000
-
-baconHubMain.TextLabel_4.Parent = baconHubMain.annoy
-baconHubMain.TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.TextLabel_4.BackgroundTransparency = 1.000
-baconHubMain.TextLabel_4.BorderColor3 = Color3.fromRGB(27, 42, 53)
-baconHubMain.TextLabel_4.Position = UDim2.new(0.0475253724, 0, 0, 0)
-baconHubMain.TextLabel_4.Size = UDim2.new(0, 149, 0, 29)
-baconHubMain.TextLabel_4.Font = Enum.Font.SourceSans
-baconHubMain.TextLabel_4.Text = "Annoy"
-baconHubMain.TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.TextLabel_4.TextSize = 14.000
-baconHubMain.TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
-
-baconHubMain.notepad_5.Name = "notepad"
-baconHubMain.notepad_5.Parent = baconHubMain.annoy
-baconHubMain.notepad_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.notepad_5.BorderColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.notepad_5.Position = UDim2.new(0.00560920406, 0, 0.00733577227, 0)
-baconHubMain.notepad_5.Size = UDim2.new(0, 19, 0, 20)
-baconHubMain.notepad_5.Image = "http://www.roblox.com/asset/?id=18238710945"
-
-baconHubMain.line_2.Name = "line"
-baconHubMain.line_2.Parent = baconHubMain.annoy
-baconHubMain.line_2.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
-baconHubMain.line_2.BorderColor3 = Color3.fromRGB(241, 241, 241)
-baconHubMain.line_2.Position = UDim2.new(0.00560892979, 0, 0.0975143388, 0)
-baconHubMain.line_2.Size = UDim2.new(0, 653, 0, 2)
-
-baconHubMain.File_2.Name = "File"
-baconHubMain.File_2.Parent = baconHubMain.annoy
-baconHubMain.File_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.File_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.File_2.BorderSizePixel = 0
-baconHubMain.File_2.Position = UDim2.new(0, 0, 0.0554493293, 0)
-baconHubMain.File_2.Size = UDim2.new(0, 52, 0, 22)
-baconHubMain.File_2.Font = Enum.Font.SourceSans
-baconHubMain.File_2.Text = "File"
-baconHubMain.File_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.File_2.TextSize = 14.000
-
-baconHubMain.Edit_2.Name = "Edit"
-baconHubMain.Edit_2.Parent = baconHubMain.annoy
-baconHubMain.Edit_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.Edit_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Edit_2.BorderSizePixel = 0
-baconHubMain.Edit_2.Position = UDim2.new(0.0778443143, 0, 0.0535372831, 0)
-baconHubMain.Edit_2.Size = UDim2.new(0, 52, 0, 22)
-baconHubMain.Edit_2.Font = Enum.Font.SourceSans
-baconHubMain.Edit_2.Text = "Edit"
-baconHubMain.Edit_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Edit_2.TextSize = 14.000
-
-baconHubMain.Format_2.Name = "Format"
-baconHubMain.Format_2.Parent = baconHubMain.annoy
-baconHubMain.Format_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.Format_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Format_2.BorderSizePixel = 0
-baconHubMain.Format_2.Position = UDim2.new(0.155688629, 0, 0.0554493293, 0)
-baconHubMain.Format_2.Size = UDim2.new(0, 52, 0, 22)
-baconHubMain.Format_2.Font = Enum.Font.SourceSans
-baconHubMain.Format_2.Text = "Format"
-baconHubMain.Format_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Format_2.TextSize = 14.000
-
-baconHubMain.View_2.Name = "View"
-baconHubMain.View_2.Parent = baconHubMain.annoy
-baconHubMain.View_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.View_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.View_2.BorderSizePixel = 0
-baconHubMain.View_2.Position = UDim2.new(0.233532935, 0, 0.0535372831, 0)
-baconHubMain.View_2.Size = UDim2.new(0, 52, 0, 22)
-baconHubMain.View_2.Font = Enum.Font.SourceSans
-baconHubMain.View_2.Text = "View"
-baconHubMain.View_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.View_2.TextSize = 14.000
-
-baconHubMain.Help_2.Name = "Help"
-baconHubMain.Help_2.Parent = baconHubMain.annoy
-baconHubMain.Help_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.Help_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Help_2.BorderSizePixel = 0
-baconHubMain.Help_2.Position = UDim2.new(0.311377257, 0, 0.0535372831, 0)
-baconHubMain.Help_2.Size = UDim2.new(0, 52, 0, 22)
-baconHubMain.Help_2.Font = Enum.Font.SourceSans
-baconHubMain.Help_2.Text = "Help"
-baconHubMain.Help_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Help_2.TextSize = 14.000
-
-baconHubMain.icon_4.Name = "icon"
-baconHubMain.icon_4.Parent = baconHubMain.annoy
-baconHubMain.icon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.icon_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.icon_4.Position = UDim2.new(0.193877548, 0, 0.0130718956, 0)
-baconHubMain.icon_4.Size = UDim2.new(0, 17, 0, 20)
-baconHubMain.icon_4.Visible = false
-baconHubMain.icon_4.Image = "http://www.roblox.com/asset/?id=18238710945"
-
-baconHubMain.Frame_4.Parent = baconHubMain.annoy
-baconHubMain.Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.Frame_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.Frame_4.BorderSizePixel = 0
-baconHubMain.Frame_4.Position = UDim2.new(0.00560920406, 0, 0.118546844, 0)
-baconHubMain.Frame_4.Size = UDim2.new(0, 653, 0, 461)
-
-baconHubMain.UIGridLayout_3.Parent = baconHubMain.Frame_4
-baconHubMain.UIGridLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
-
-baconHubMain.tpAndSpin.Name = "tpAndSpin"
-baconHubMain.tpAndSpin.Parent = baconHubMain.Frame_4
-baconHubMain.tpAndSpin.BackgroundColor3 = Color3.fromRGB(213, 213, 213)
-baconHubMain.tpAndSpin.BorderColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.tpAndSpin.BorderSizePixel = 0
-baconHubMain.tpAndSpin.Size = UDim2.new(0, 200, 0, 50)
-baconHubMain.tpAndSpin.Font = Enum.Font.SourceSans
-baconHubMain.tpAndSpin.Text = "Tp and fling everyone (off)"
-baconHubMain.tpAndSpin.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.tpAndSpin.TextSize = 14.000
-baconHubMain.tpAndSpin.TextWrapped = true
-
 baconHubMain.data_2.Name = "data"
 baconHubMain.data_2.Parent = baconHubMain.baconHubMain
 baconHubMain.data_2.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
@@ -960,27 +797,27 @@ baconHubMain.data_2.Position = UDim2.new(0.320526212, 0, 0.209339544, 0)
 baconHubMain.data_2.Size = UDim2.new(0, 601, 0, 561)
 baconHubMain.data_2.Visible = false
 
-baconHubMain.close_5.Name = "close"
-baconHubMain.close_5.Parent = baconHubMain.data_2
-baconHubMain.close_5.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
-baconHubMain.close_5.BorderColor3 = Color3.fromRGB(241, 241, 241)
-baconHubMain.close_5.Position = UDim2.new(0.95126307, 0, 0, 0)
-baconHubMain.close_5.Size = UDim2.new(0, 29, 0, 24)
-baconHubMain.close_5.Font = Enum.Font.SourceSans
-baconHubMain.close_5.Text = "X"
-baconHubMain.close_5.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.close_5.TextSize = 14.000
+baconHubMain.close_4.Name = "close"
+baconHubMain.close_4.Parent = baconHubMain.data_2
+baconHubMain.close_4.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
+baconHubMain.close_4.BorderColor3 = Color3.fromRGB(241, 241, 241)
+baconHubMain.close_4.Position = UDim2.new(0.95126307, 0, 0, 0)
+baconHubMain.close_4.Size = UDim2.new(0, 29, 0, 24)
+baconHubMain.close_4.Font = Enum.Font.SourceSans
+baconHubMain.close_4.Text = "X"
+baconHubMain.close_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+baconHubMain.close_4.TextSize = 14.000
 
-baconHubMain.minimize_5.Name = "minimize"
-baconHubMain.minimize_5.Parent = baconHubMain.data_2
-baconHubMain.minimize_5.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
-baconHubMain.minimize_5.BorderColor3 = Color3.fromRGB(241, 241, 241)
-baconHubMain.minimize_5.Position = UDim2.new(0.894206464, 0, 0, 0)
-baconHubMain.minimize_5.Size = UDim2.new(0, 29, 0, 24)
-baconHubMain.minimize_5.Font = Enum.Font.SourceSans
-baconHubMain.minimize_5.Text = "-"
-baconHubMain.minimize_5.TextColor3 = Color3.fromRGB(0, 0, 0)
-baconHubMain.minimize_5.TextSize = 29.000
+baconHubMain.minimize_4.Name = "minimize"
+baconHubMain.minimize_4.Parent = baconHubMain.data_2
+baconHubMain.minimize_4.BackgroundColor3 = Color3.fromRGB(241, 241, 241)
+baconHubMain.minimize_4.BorderColor3 = Color3.fromRGB(241, 241, 241)
+baconHubMain.minimize_4.Position = UDim2.new(0.894206464, 0, 0, 0)
+baconHubMain.minimize_4.Size = UDim2.new(0, 29, 0, 24)
+baconHubMain.minimize_4.Font = Enum.Font.SourceSans
+baconHubMain.minimize_4.Text = "-"
+baconHubMain.minimize_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+baconHubMain.minimize_4.TextSize = 29.000
 
 baconHubMain.windowTitle_3.Name = "windowTitle"
 baconHubMain.windowTitle_3.Parent = baconHubMain.data_2
@@ -995,22 +832,22 @@ baconHubMain.windowTitle_3.TextColor3 = Color3.fromRGB(0, 0, 0)
 baconHubMain.windowTitle_3.TextSize = 14.000
 baconHubMain.windowTitle_3.TextXAlignment = Enum.TextXAlignment.Left
 
-baconHubMain.icon_5.Name = "icon"
-baconHubMain.icon_5.Parent = baconHubMain.data_2
-baconHubMain.icon_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.icon_5.BorderColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.icon_5.Position = UDim2.new(0.193877548, 0, 0.0130718956, 0)
-baconHubMain.icon_5.Size = UDim2.new(0, 17, 0, 20)
-baconHubMain.icon_5.Visible = false
-baconHubMain.icon_5.Image = "http://www.roblox.com/asset/?id=18285112483"
+baconHubMain.icon_4.Name = "icon"
+baconHubMain.icon_4.Parent = baconHubMain.data_2
+baconHubMain.icon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+baconHubMain.icon_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+baconHubMain.icon_4.Position = UDim2.new(0.193877548, 0, 0.0130718956, 0)
+baconHubMain.icon_4.Size = UDim2.new(0, 17, 0, 20)
+baconHubMain.icon_4.Visible = false
+baconHubMain.icon_4.Image = "http://www.roblox.com/asset/?id=18285112483"
 
-baconHubMain.notepad_6.Name = "notepad"
-baconHubMain.notepad_6.Parent = baconHubMain.data_2
-baconHubMain.notepad_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.notepad_6.BorderColor3 = Color3.fromRGB(255, 255, 255)
-baconHubMain.notepad_6.Position = UDim2.new(0.00560921663, 0, 0.00733577833, 0)
-baconHubMain.notepad_6.Size = UDim2.new(0, 20, 0, 20)
-baconHubMain.notepad_6.Image = "http://www.roblox.com/asset/?id=18285112483"
+baconHubMain.notepad_5.Name = "notepad"
+baconHubMain.notepad_5.Parent = baconHubMain.data_2
+baconHubMain.notepad_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+baconHubMain.notepad_5.BorderColor3 = Color3.fromRGB(255, 255, 255)
+baconHubMain.notepad_5.Position = UDim2.new(0.00560921663, 0, 0.00733577833, 0)
+baconHubMain.notepad_5.Size = UDim2.new(0, 20, 0, 20)
+baconHubMain.notepad_5.Image = "http://www.roblox.com/asset/?id=18285112483"
 
 baconHubMain.hrpCoords.Name = "hrpCoords"
 baconHubMain.hrpCoords.Parent = baconHubMain.data_2
@@ -1069,7 +906,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 		
 			if (not droppedDown) then
 				dropDownFolder:WaitForChild("dropDownArrow").Text = "-"
-		
+				print("test 1")
 				local itemHeight = dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
 				local sFHS = dropDownFolder:WaitForChild("labelFrame").Position.Y.Offset + dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
 				local totalHeight = (#options * itemHeight)
@@ -1078,7 +915,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 				if (totalHeight > maxHeight) then
 					usedHeight = maxHeight
 				end
-		
+				print("test 2")
 				local scrollingFrame = Instance.new("ScrollingFrame")
 				scrollingFrame.Position = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Position.X.Offset, 0, sFHS)
 				scrollingFrame.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset+20, 0, usedHeight)
@@ -1089,7 +926,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 		
 				local listLayout = Instance.new("UIListLayout")
 				listLayout.Parent = scrollingFrame
-		
+				print("test 3")
 				for i, option in pairs(options) do
 					local renderedOption = Instance.new("TextButton")
 					renderedOption.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset, 0, dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset)
@@ -1101,8 +938,10 @@ do -- baconHubMain.baconHubMain.mainFunctions
 						main.droppedOptionClicked(dropDownFolder, renderedOption.Text)
 					end)
 				end
+				print("test 4")
 			else
 				dropDownFolder:WaitForChild("dropDownArrow").Text = "V"
+				print("test 5")
 				droppedDown:Destroy()
 			end
 		
@@ -1240,7 +1079,8 @@ do -- baconHubMain.baconHubMain.mainFunctions
 							local espOutline = v.Character:FindFirstChild('espOutline')
 							espOutline.OutlineColor = Color3.fromHex(hex)
 						end
-						if (not v.Character:FindFirstChild("nameGui")) then
+						local humanoidRootPart = v.Character:FindFirstChild('HumanoidRootPart')
+						if (humanoidRootPart and not v.Character:FindFirstChild("nameGui")) then
 							local name = Instance.new("BillboardGui")
 							name.Parent = v.Character.HumanoidRootPart
 							name.Name = 'nameGui'
@@ -1305,7 +1145,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 	
 		if (not droppedDown) then
 			dropDownFolder:WaitForChild("dropDownArrow").Text = "-"
-	
+			print("test 1")
 			local itemHeight = dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
 			local sFHS = dropDownFolder:WaitForChild("labelFrame").Position.Y.Offset + dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset
 			local totalHeight = (#options * itemHeight)
@@ -1314,7 +1154,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 			if (totalHeight > maxHeight) then
 				usedHeight = maxHeight
 			end
-	
+			print("test 2")
 			local scrollingFrame = Instance.new("ScrollingFrame")
 			scrollingFrame.Position = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Position.X.Offset, 0, sFHS)
 			scrollingFrame.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset+20, 0, usedHeight)
@@ -1325,7 +1165,7 @@ do -- baconHubMain.baconHubMain.mainFunctions
 	
 			local listLayout = Instance.new("UIListLayout")
 			listLayout.Parent = scrollingFrame
-	
+			print("test 3")
 			for i, option in pairs(options) do
 				local renderedOption = Instance.new("TextButton")
 				renderedOption.Size = UDim2.new(0, dropDownFolder:WaitForChild("labelFrame").Size.X.Offset, 0, dropDownFolder:WaitForChild("labelFrame").Size.Y.Offset)
@@ -1337,8 +1177,10 @@ do -- baconHubMain.baconHubMain.mainFunctions
 					main.droppedOptionClicked(dropDownFolder, renderedOption.Text)
 				end)
 			end
+			print("test 4")
 		else
 			dropDownFolder:WaitForChild("dropDownArrow").Text = "V"
+			print("test 5")
 			droppedDown:Destroy()
 		end
 	
@@ -1476,7 +1318,8 @@ do -- baconHubMain.baconHubMain.mainFunctions
 						local espOutline = v.Character:FindFirstChild('espOutline')
 						espOutline.OutlineColor = Color3.fromHex(hex)
 					end
-					if (not v.Character:FindFirstChild("nameGui")) then
+					local humanoidRootPart = v.Character:FindFirstChild('HumanoidRootPart')
+					if (humanoidRootPart and not v.Character:FindFirstChild("nameGui")) then
 						local name = Instance.new("BillboardGui")
 						name.Parent = v.Character.HumanoidRootPart
 						name.Name = 'nameGui'
@@ -1526,7 +1369,7 @@ end
 
 -- Scripts:
 
-local function OTKA_fake_script() -- baconHubMain.Frame_2.opener 
+local function TMRW_fake_script() -- baconHubMain.Frame_2.opener 
 	local script = Instance.new('LocalScript', baconHubMain.Frame_2)
 	local req = require
 	local require = function(obj)
@@ -1549,8 +1392,8 @@ local function OTKA_fake_script() -- baconHubMain.Frame_2.opener
 		end
 	end
 end
-coroutine.wrap(OTKA_fake_script)()
-local function MBFCND_fake_script() -- baconHubMain.win10taskbar.LocalScript 
+coroutine.wrap(TMRW_fake_script)()
+local function BYYIA_fake_script() -- baconHubMain.win10taskbar.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1568,8 +1411,8 @@ local function MBFCND_fake_script() -- baconHubMain.win10taskbar.LocalScript
 		layer.Name = "windows"
 	end
 end
-coroutine.wrap(MBFCND_fake_script)()
-local function GBZNFNJ_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
+coroutine.wrap(BYYIA_fake_script)()
+local function ZNWYTJ_fake_script() -- baconHubMain.windowsHomeButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.windowsHomeButton)
 	local req = require
 	local require = function(obj)
@@ -1594,8 +1437,8 @@ local function GBZNFNJ_fake_script() -- baconHubMain.windowsHomeButton.LocalScri
 	
 	
 end
-coroutine.wrap(GBZNFNJ_fake_script)()
-local function BKAY_fake_script() -- baconHubMain.win10taskbar.draggable 
+coroutine.wrap(ZNWYTJ_fake_script)()
+local function JYHJKQ_fake_script() -- baconHubMain.win10taskbar.draggable 
 	local script = Instance.new('LocalScript', baconHubMain.win10taskbar)
 	local req = require
 	local require = function(obj)
@@ -1622,7 +1465,7 @@ local function BKAY_fake_script() -- baconHubMain.win10taskbar.draggable
 	
 	-- Function to find a frame at a specific position with a certain ZIndex
 	local function findFrameAtPosition(position, zIndex)
-		for _, frame in ipairs(game.Workspace:GetChildren()) do
+		for _, frame in ipairs(game:GetService("Workspace"):GetChildren()) do
 			if frame:IsA("Frame") and frame.ZIndex == zIndex and isMouseOverFrame(frame, position) then
 				return frame
 			end
@@ -1693,8 +1536,8 @@ local function BKAY_fake_script() -- baconHubMain.win10taskbar.draggable
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(BKAY_fake_script)()
-local function JHFIAKZ_fake_script() -- baconHubMain.win10.LocalScript 
+coroutine.wrap(JYHJKQ_fake_script)()
+local function HJPBKJQ_fake_script() -- baconHubMain.win10.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.win10)
 	local req = require
 	local require = function(obj)
@@ -1712,8 +1555,8 @@ local function JHFIAKZ_fake_script() -- baconHubMain.win10.LocalScript
 	layer.Name = "layer"
 	end
 end
-coroutine.wrap(JHFIAKZ_fake_script)()
-local function YHPHCW_fake_script() -- baconHubMain.settings_2.LocalScript 
+coroutine.wrap(HJPBKJQ_fake_script)()
+local function UBWM_fake_script() -- baconHubMain.settings_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.settings_2)
 	local req = require
 	local require = function(obj)
@@ -1740,7 +1583,7 @@ local function YHPHCW_fake_script() -- baconHubMain.settings_2.LocalScript
 	
 	-- Function to find a frame at a specific position with a certain ZIndex
 	local function findFrameAtPosition(position, zIndex)
-		for _, frame in ipairs(game.Workspace:GetChildren()) do
+		for _, frame in ipairs(game:GetService("Workspace"):GetChildren()) do
 			if frame:IsA("Frame") and frame.ZIndex == zIndex and isMouseOverFrame(frame, position) then
 				return frame
 			end
@@ -1811,8 +1654,8 @@ local function YHPHCW_fake_script() -- baconHubMain.settings_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(YHPHCW_fake_script)()
-local function MIEIR_fake_script() -- baconHubMain.close.LocalScript 
+coroutine.wrap(UBWM_fake_script)()
+local function HZXUS_fake_script() -- baconHubMain.close.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close)
 	local req = require
 	local require = function(obj)
@@ -1838,8 +1681,8 @@ local function MIEIR_fake_script() -- baconHubMain.close.LocalScript
 	
 	
 end
-coroutine.wrap(MIEIR_fake_script)()
-local function VMFUIWO_fake_script() -- baconHubMain.minimize.LocalScript 
+coroutine.wrap(HZXUS_fake_script)()
+local function LFQKVVP_fake_script() -- baconHubMain.minimize.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize)
 	local req = require
 	local require = function(obj)
@@ -1853,15 +1696,6 @@ local function VMFUIWO_fake_script() -- baconHubMain.minimize.LocalScript
 	function Click(mouse)
 	
 		script.Parent.Parent.Visible = false
-		if script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name).Position.Y.Scale >= 0.077 then
-			script.Parent.Parent.Parent.win10taskbar.windows.Value += 1
-	
-			local icon = script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name)
-			icon.Visible = true
-			icon.Interactable = true
-			icon.Position = UDim2.new(0.083*script.Parent.Parent.Parent.win10taskbar.windows.Value, 0, 0.073, 0)
-			icon.Image = script.Parent.Parent.icon.Image
-		end
 	end
 	script.Parent.MouseButton1Down:connect(Click)
 	
@@ -1874,8 +1708,8 @@ local function VMFUIWO_fake_script() -- baconHubMain.minimize.LocalScript
 	
 	
 end
-coroutine.wrap(VMFUIWO_fake_script)()
-local function TOOJJ_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
+coroutine.wrap(LFQKVVP_fake_script)()
+local function CAPC_fake_script() -- baconHubMain.walkspeedButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.walkspeedButton)
 	local req = require
 	local require = function(obj)
@@ -1891,8 +1725,8 @@ local function TOOJJ_fake_script() -- baconHubMain.walkspeedButton.LocalScript
 		game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = script.Parent.Parent.walkspeedValue.Text
 	end)
 end
-coroutine.wrap(TOOJJ_fake_script)()
-local function LDETE_fake_script() -- baconHubMain.spinButton.LocalScript 
+coroutine.wrap(CAPC_fake_script)()
+local function FXGNWV_fake_script() -- baconHubMain.spinButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.spinButton)
 	local req = require
 	local require = function(obj)
@@ -1952,8 +1786,8 @@ local function LDETE_fake_script() -- baconHubMain.spinButton.LocalScript
 	
 	end)
 end
-coroutine.wrap(LDETE_fake_script)()
-local function QSAINU_fake_script() -- baconHubMain.flyButton.LocalScript 
+coroutine.wrap(FXGNWV_fake_script)()
+local function UFBOCA_fake_script() -- baconHubMain.flyButton.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.flyButton)
 	local req = require
 	local require = function(obj)
@@ -2028,14 +1862,14 @@ local function QSAINU_fake_script() -- baconHubMain.flyButton.LocalScript
 				end 
 			end 
 			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+				bv.velocity = ((game:GetService("Workspace").CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game:GetService("Workspace").CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game:GetService("Workspace").CurrentCamera.CoordinateFrame.p))*speed 
 				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
 			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+				bv.velocity = ((game:GetService("Workspace").CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game:GetService("Workspace").CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game:GetService("Workspace").CurrentCamera.CoordinateFrame.p))*speed 
 			else 
 				bv.velocity = Vector3.new(0,0.1,0) 
 			end 
-			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*5*speed/maxspeed),0,0) 
+			bg.cframe = game:GetService("Workspace").CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*5*speed/maxspeed),0,0) 
 		until not flying 
 		ctrl = {f = 0, b = 0, l = 0, r = 0} 
 		lastctrl = {f = 0, b = 0, l = 0, r = 0} 
@@ -2083,8 +1917,8 @@ local function QSAINU_fake_script() -- baconHubMain.flyButton.LocalScript
 	end)
 	
 end
-coroutine.wrap(QSAINU_fake_script)()
-local function YYTYDD_fake_script() -- baconHubMain.espScript.genericESP 
+coroutine.wrap(UFBOCA_fake_script)()
+local function EMVZLTS_fake_script() -- baconHubMain.espScript.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.espScript)
 	local req = require
 	local require = function(obj)
@@ -2133,8 +1967,8 @@ local function YYTYDD_fake_script() -- baconHubMain.espScript.genericESP
 	end
 	
 end
-coroutine.wrap(YYTYDD_fake_script)()
-local function BRNH_fake_script() -- baconHubMain.fullbright.LocalScript 
+coroutine.wrap(EMVZLTS_fake_script)()
+local function PBDUQ_fake_script() -- baconHubMain.fullbright.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.fullbright)
 	local req = require
 	local require = function(obj)
@@ -2150,7 +1984,7 @@ local function BRNH_fake_script() -- baconHubMain.fullbright.LocalScript
 	function instanceLightSource()
 		local light = Instance.new('PointLight')
 		light.Range = 100
-		light.Parent = game.Workspace:WaitForChild(game:GetService("Players").LocalPlayer.Name):WaitForChild("HumanoidRootPart")
+		light.Parent = game:GetService("Workspace"):WaitForChild(game:GetService("Players").LocalPlayer.Name):WaitForChild("HumanoidRootPart")
 		light.Name = 'light'
 	end
 	
@@ -2163,8 +1997,8 @@ local function BRNH_fake_script() -- baconHubMain.fullbright.LocalScript
 		else
 			script.Parent.Text = "Enable Fullbright (off)"
 			enabled = false
-			if (game.Workspace:WaitForChild(game:GetService("Players").LocalPlayer.Name).HumanoidRootPart:FindFirstChild('light')) then
-				game.Workspace:WaitForChild(game:GetService("Players").LocalPlayer.Name).HumanoidRootPart:WaitForChild('light'):Destroy()
+			if (game:GetService("Workspace"):WaitForChild(game:GetService("Players").LocalPlayer.Name).HumanoidRootPart:FindFirstChild('light')) then
+				game:GetService("Workspace"):WaitForChild(game:GetService("Players").LocalPlayer.Name).HumanoidRootPart:WaitForChild('light'):Destroy()
 			end
 		end
 	end)
@@ -2175,8 +2009,8 @@ local function BRNH_fake_script() -- baconHubMain.fullbright.LocalScript
 		end
 	end)
 end
-coroutine.wrap(BRNH_fake_script)()
-local function ZLVD_fake_script() -- baconHubMain.aimbot.LocalScript 
+coroutine.wrap(PBDUQ_fake_script)()
+local function UALCG_fake_script() -- baconHubMain.aimbot.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.aimbot)
 	local req = require
 	local require = function(obj)
@@ -2188,7 +2022,7 @@ local function ZLVD_fake_script() -- baconHubMain.aimbot.LocalScript
 	end
 
 	aimbot = false
-	local camera = game.Workspace.CurrentCamera
+	local camera = game:GetService("Workspace").CurrentCamera
 	local localplayer = game:GetService("Players").LocalPlayer
 	
 	
@@ -2250,8 +2084,8 @@ local function ZLVD_fake_script() -- baconHubMain.aimbot.LocalScript
 		end
 	end)
 end
-coroutine.wrap(ZLVD_fake_script)()
-local function HYDC_fake_script() -- baconHubMain.btools.LocalScript 
+coroutine.wrap(UALCG_fake_script)()
+local function WVKZB_fake_script() -- baconHubMain.btools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.btools)
 	local req = require
 	local require = function(obj)
@@ -2271,7 +2105,7 @@ local function HYDC_fake_script() -- baconHubMain.btools.LocalScript
 	
 	local btoolsVoid = Instance.new("Folder")
 	btoolsVoid.Name = "btoolsVoid"
-	btoolsVoid.Parent = game.ReplicatedStorage
+	btoolsVoid.Parent = game:GetService("ReplicatedStorage")
 	
 	
 	function changeColor() 
@@ -2313,8 +2147,8 @@ local function HYDC_fake_script() -- baconHubMain.btools.LocalScript
 		end
 	end)
 end
-coroutine.wrap(HYDC_fake_script)()
-local function EKYTB_fake_script() -- baconHubMain.undoBtools.LocalScript 
+coroutine.wrap(WVKZB_fake_script)()
+local function OWXZC_fake_script() -- baconHubMain.undoBtools.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.undoBtools)
 	local req = require
 	local require = function(obj)
@@ -2328,7 +2162,7 @@ local function EKYTB_fake_script() -- baconHubMain.undoBtools.LocalScript
 	local player = game:GetService("Players").LocalPlayer
 	local mouse = player:GetMouse()
 	
-	local btoolsVoid = game.ReplicatedStorage:WaitForChild("btoolsVoid")
+	local btoolsVoid = game:GetService("ReplicatedStorage"):WaitForChild("btoolsVoid")
 	
 	script.Parent.MouseButton1Up:Connect(function()
 		for _, part in pairs(btoolsVoid:GetChildren()) do
@@ -2336,9 +2170,10 @@ local function EKYTB_fake_script() -- baconHubMain.undoBtools.LocalScript
 			part:FindFirstChild("parentObjectTag"):Destroy()
 		end
 	end)
+	
 end
-coroutine.wrap(EKYTB_fake_script)()
-local function IMVYILG_fake_script() -- baconHubMain.noclip.LocalScript 
+coroutine.wrap(OWXZC_fake_script)()
+local function BKSCQGI_fake_script() -- baconHubMain.noclip.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.noclip)
 	local req = require
 	local require = function(obj)
@@ -2383,8 +2218,8 @@ local function IMVYILG_fake_script() -- baconHubMain.noclip.LocalScript
 		end
 	end
 end
-coroutine.wrap(IMVYILG_fake_script)()
-local function SEWB_fake_script() -- baconHubMain.closeMenu.genericESP 
+coroutine.wrap(BKSCQGI_fake_script)()
+local function BNBSAED_fake_script() -- baconHubMain.closeMenu.genericESP 
 	local script = Instance.new('LocalScript', baconHubMain.closeMenu)
 	local req = require
 	local require = function(obj)
@@ -2400,8 +2235,8 @@ local function SEWB_fake_script() -- baconHubMain.closeMenu.genericESP
 		
 	end)
 end
-coroutine.wrap(SEWB_fake_script)()
-local function MOCYVD_fake_script() -- baconHubMain.dropDownPls.requestDropDown 
+coroutine.wrap(BNBSAED_fake_script)()
+local function YAWBS_fake_script() -- baconHubMain.dropDownPls.requestDropDown 
 	local script = Instance.new('LocalScript', baconHubMain.dropDownPls)
 	local req = require
 	local require = function(obj)
@@ -2424,8 +2259,8 @@ local function MOCYVD_fake_script() -- baconHubMain.dropDownPls.requestDropDown
 	
 	main.createDropDown(script.Parent.Parent, _, _, _, _, playerNames , 1, 120, Color3.new(0.133333, 1, 0), script.Parent, "Select Player", "teleportPlayerDropDown")
 end
-coroutine.wrap(MOCYVD_fake_script)()
-local function LBIYFW_fake_script() -- baconHubMain.teleportToPlayer.teleportTime 
+coroutine.wrap(YAWBS_fake_script)()
+local function CRATR_fake_script() -- baconHubMain.teleportToPlayer.teleportTime 
 	local script = Instance.new('LocalScript', baconHubMain.teleportToPlayer)
 	local req = require
 	local require = function(obj)
@@ -2445,8 +2280,8 @@ local function LBIYFW_fake_script() -- baconHubMain.teleportToPlayer.teleportTim
 		end
 	end)
 end
-coroutine.wrap(LBIYFW_fake_script)()
-local function SCKAVZP_fake_script() -- baconHubMain.TextLabel.LocalScript 
+coroutine.wrap(CRATR_fake_script)()
+local function XEQEPR_fake_script() -- baconHubMain.TextLabel.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.TextLabel)
 	local req = require
 	local require = function(obj)
@@ -2461,8 +2296,8 @@ local function SCKAVZP_fake_script() -- baconHubMain.TextLabel.LocalScript
 	
 	script.Parent.Text = name
 end
-coroutine.wrap(SCKAVZP_fake_script)()
-local function PDFLICJ_fake_script() -- baconHubMain.notepad_3.LocalScript 
+coroutine.wrap(XEQEPR_fake_script)()
+local function LEAYNGH_fake_script() -- baconHubMain.notepad_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.notepad_3)
 	local req = require
 	local require = function(obj)
@@ -2488,7 +2323,7 @@ local function PDFLICJ_fake_script() -- baconHubMain.notepad_3.LocalScript
 	
 	-- Function to find a frame at a specific position with a certain ZIndex
 	local function findFrameAtPosition(position, zIndex)
-		for _, frame in ipairs(game.Workspace:GetChildren()) do
+		for _, frame in ipairs(game:GetService("Workspace"):GetChildren()) do
 			if frame:IsA("Frame") and frame.ZIndex == zIndex and isMouseOverFrame(frame, position) then
 				return frame
 			end
@@ -2559,8 +2394,8 @@ local function PDFLICJ_fake_script() -- baconHubMain.notepad_3.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(PDFLICJ_fake_script)()
-local function ABBRC_fake_script() -- baconHubMain.close_2.LocalScript 
+coroutine.wrap(LEAYNGH_fake_script)()
+local function DHHIW_fake_script() -- baconHubMain.close_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_2)
 	local req = require
 	local require = function(obj)
@@ -2586,8 +2421,8 @@ local function ABBRC_fake_script() -- baconHubMain.close_2.LocalScript
 	
 	
 end
-coroutine.wrap(ABBRC_fake_script)()
-local function HHQM_fake_script() -- baconHubMain.minimize_2.script 
+coroutine.wrap(DHHIW_fake_script)()
+local function TXYK_fake_script() -- baconHubMain.minimize_2.script 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_2)
 	local req = require
 	local require = function(obj)
@@ -2601,15 +2436,6 @@ local function HHQM_fake_script() -- baconHubMain.minimize_2.script
 	function Click(mouse)
 	
 		script.Parent.Parent.Visible = false
-		if script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name).Position.Y.Scale >= 0.077 then
-			script.Parent.Parent.Parent.win10taskbar.windows.Value += 1
-	
-			local icon = script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name)
-			icon.Visible = true
-			icon.Interactable = true
-			icon.Position = UDim2.new(0.083*script.Parent.Parent.Parent.win10taskbar.windows.Value, 0, 0.073, 0)
-			icon.Image = script.Parent.Parent.icon.Image
-		end
 	end
 	script.Parent.MouseButton1Down:connect(Click)
 	
@@ -2622,8 +2448,8 @@ local function HHQM_fake_script() -- baconHubMain.minimize_2.script
 	
 	
 end
-coroutine.wrap(HHQM_fake_script)()
-local function YTBRUI_fake_script() -- baconHubMain.music_2.LocalScript 
+coroutine.wrap(TXYK_fake_script)()
+local function DCFYXB_fake_script() -- baconHubMain.music_2.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.music_2)
 	local req = require
 	local require = function(obj)
@@ -2650,7 +2476,7 @@ local function YTBRUI_fake_script() -- baconHubMain.music_2.LocalScript
 	
 	-- Function to find a frame at a specific position with a certain ZIndex
 	local function findFrameAtPosition(position, zIndex)
-		for _, frame in ipairs(game.Workspace:GetChildren()) do
+		for _, frame in ipairs(game:GetService("Workspace"):GetChildren()) do
 			if frame:IsA("Frame") and frame.ZIndex == zIndex and isMouseOverFrame(frame, position) then
 				return frame
 			end
@@ -2721,8 +2547,8 @@ local function YTBRUI_fake_script() -- baconHubMain.music_2.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(YTBRUI_fake_script)()
-local function UGTZQ_fake_script() -- baconHubMain.close_3.LocalScript 
+coroutine.wrap(DCFYXB_fake_script)()
+local function LCTYAYC_fake_script() -- baconHubMain.close_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_3)
 	local req = require
 	local require = function(obj)
@@ -2748,8 +2574,8 @@ local function UGTZQ_fake_script() -- baconHubMain.close_3.LocalScript
 	
 	
 end
-coroutine.wrap(UGTZQ_fake_script)()
-local function LUMOQPR_fake_script() -- baconHubMain.minimize_3.LocalScript 
+coroutine.wrap(LCTYAYC_fake_script)()
+local function LSPKXF_fake_script() -- baconHubMain.minimize_3.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_3)
 	local req = require
 	local require = function(obj)
@@ -2763,15 +2589,6 @@ local function LUMOQPR_fake_script() -- baconHubMain.minimize_3.LocalScript
 	function Click(mouse)
 	
 		script.Parent.Parent.Visible = false
-		if script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name).Position.Y.Scale >= 0.077 then
-			script.Parent.Parent.Parent.win10taskbar.windows.Value += 1
-	
-			local icon = script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name)
-			icon.Visible = true
-			icon.Interactable = true
-			icon.Position = UDim2.new(0.083*script.Parent.Parent.Parent.win10taskbar.windows.Value, 0, 0.073, 0)
-			icon.Image = script.Parent.Parent.icon.Image
-		end
 	end
 	script.Parent.MouseButton1Down:connect(Click)
 	
@@ -2784,8 +2601,8 @@ local function LUMOQPR_fake_script() -- baconHubMain.minimize_3.LocalScript
 	
 	
 end
-coroutine.wrap(LUMOQPR_fake_script)()
-local function OFHOVW_fake_script() -- baconHubMain.play.LocalScript 
+coroutine.wrap(LSPKXF_fake_script)()
+local function YZJPDJG_fake_script() -- baconHubMain.play.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.play)
 	local req = require
 	local require = function(obj)
@@ -2834,9 +2651,9 @@ local function OFHOVW_fake_script() -- baconHubMain.play.LocalScript
 	end)
 	
 end
-coroutine.wrap(OFHOVW_fake_script)()
-local function ZFOKOC_fake_script() -- baconHubMain.annoy.LocalScript 
-	local script = Instance.new('LocalScript', baconHubMain.annoy)
+coroutine.wrap(YZJPDJG_fake_script)()
+local function ANQX_fake_script() -- baconHubMain.data_2.LocalScript 
+	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
 		local fake = fake_module_scripts[obj]
@@ -2846,6 +2663,7 @@ local function ZFOKOC_fake_script() -- baconHubMain.annoy.LocalScript
 		return req(obj)
 	end
 
+	
 	local UserInputService = game:GetService("UserInputService")
 	
 	-- Function to check if the mouse is over the frame
@@ -2859,9 +2677,10 @@ local function ZFOKOC_fake_script() -- baconHubMain.annoy.LocalScript
 			mousePosition.Y <= framePosition.Y + frameSize.Y)
 	end
 	
+	
 	-- Function to find a frame at a specific position with a certain ZIndex
 	local function findFrameAtPosition(position, zIndex)
-		for _, frame in ipairs(game.Workspace:GetChildren()) do
+		for _, frame in ipairs(game:GetService("Workspace"):GetChildren()) do
 			if frame:IsA("Frame") and frame.ZIndex == zIndex and isMouseOverFrame(frame, position) then
 				return frame
 			end
@@ -2932,8 +2751,8 @@ local function ZFOKOC_fake_script() -- baconHubMain.annoy.LocalScript
 	makeDraggable(frameToDrag)
 	
 end
-coroutine.wrap(ZFOKOC_fake_script)()
-local function BVLDF_fake_script() -- baconHubMain.close_4.LocalScript 
+coroutine.wrap(ANQX_fake_script)()
+local function OHEJGNL_fake_script() -- baconHubMain.close_4.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.close_4)
 	local req = require
 	local require = function(obj)
@@ -2959,8 +2778,8 @@ local function BVLDF_fake_script() -- baconHubMain.close_4.LocalScript
 	
 	
 end
-coroutine.wrap(BVLDF_fake_script)()
-local function EDXDEQ_fake_script() -- baconHubMain.minimize_4.script 
+coroutine.wrap(OHEJGNL_fake_script)()
+local function EFSEHMC_fake_script() -- baconHubMain.minimize_4.LocalScript 
 	local script = Instance.new('LocalScript', baconHubMain.minimize_4)
 	local req = require
 	local require = function(obj)
@@ -2974,15 +2793,6 @@ local function EDXDEQ_fake_script() -- baconHubMain.minimize_4.script
 	function Click(mouse)
 	
 		script.Parent.Parent.Visible = false
-		if script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name).Position.Y.Scale >= 0.077 then
-			script.Parent.Parent.Parent.win10taskbar.windows.Value += 1
-	
-			local icon = script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name)
-			icon.Visible = true
-			icon.Interactable = true
-			icon.Position = UDim2.new(0.083*script.Parent.Parent.Parent.win10taskbar.windows.Value, 0, 0.073, 0)
-			icon.Image = script.Parent.Parent.icon.Image
-		end
 	end
 	script.Parent.MouseButton1Down:connect(Click)
 	
@@ -2995,236 +2805,8 @@ local function EDXDEQ_fake_script() -- baconHubMain.minimize_4.script
 	
 	
 end
-coroutine.wrap(EDXDEQ_fake_script)()
-local function FFECI_fake_script() -- baconHubMain.tpAndSpin.LocalScript 
-	local script = Instance.new('LocalScript', baconHubMain.tpAndSpin)
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
-
-	local spinning = false
-	local power = 5000
-	local RunService = game:GetService("RunService")
-	
-	local players = game.Players:GetChildren()
-	local currentIterator = 1
-	
-	local skipRuns = 1
-	local char = game.Players.LocalPlayer.Character
-	
-	local aP
-	local attach1
-	local attach2
-	local joint
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		if spinning == true then
-			spinning = false
-			script.Parent.Text = "Enable Spinning (off)"
-			game.Players.LocalPlayer.Character.HumanoidRootPart:WaitForChild('BodyThrust'):Destroy()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.RotVelocity = Vector3.zero
-		else
-			spinning = true
-			script.Parent.Text = "Disable Spinning (on)"
-			spin()
-		end
-	end)
-	
-	
-	
-	function spin()
-		while spinning == true do
-			players = game.Players:GetChildren()
-			if (game.Players.LocalPlayer.Character and not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyThrust")) then
-				local spin = Instance.new("BodyThrust")
-				spin.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-				spin.Force = Vector3.new(power,0,power)
-				spin.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-				wait(.1)
-			end
-			game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.zero
-			
-			if (players[currentIterator]) then
-	
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(players[currentIterator].Character.HumanoidRootPart.CFrame.Position) * game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Rotation
-			else
-				currentIterator = 1
-			end
-			
-			currentIterator +=1
-			wait(2)
-		end
-	end
-end
-coroutine.wrap(FFECI_fake_script)()
-local function WWFO_fake_script() -- baconHubMain.data_2.LocalScript 
-	local script = Instance.new('LocalScript', baconHubMain.data_2)
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
-
-	
-	local UserInputService = game:GetService("UserInputService")
-	
-	-- Function to check if the mouse is over the frame
-	local function isMouseOverFrame(frame, mousePosition)
-		local framePosition = frame.AbsolutePosition
-		local frameSize = frame.AbsoluteSize
-	
-		return (mousePosition.X >= framePosition.X and
-			mousePosition.X <= framePosition.X + frameSize.X and
-			mousePosition.Y >= framePosition.Y and
-			mousePosition.Y <= framePosition.Y + frameSize.Y)
-	end
-	
-	-- Function to find a frame at a specific position with a certain ZIndex
-	local function findFrameAtPosition(position, zIndex)
-		for _, frame in ipairs(game.Workspace:GetChildren()) do
-			if frame:IsA("Frame") and frame.ZIndex == zIndex and isMouseOverFrame(frame, position) then
-				return frame
-			end
-		end
-		return nil
-	end
-	
-	-- Function to handle dragging behavior
-	local function makeDraggable(frame)
-		local mouse = game:GetService("Players").LocalPlayer:GetMouse()
-		local dragging = false
-		local objectPosition = nil
-		local originalZIndex = frame.ZIndex  -- Store the original ZIndex of the frame
-		local inputChangedConnection = nil  -- To store the InputChanged connection
-	
-		frame.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 then
-				local mousePosition = Vector2.new(mouse.X, mouse.Y)
-	
-				-- Check if there is another frame with ZIndex 5 at the click position
-				local frameAtPosition = findFrameAtPosition(mousePosition, 5)
-				if frameAtPosition and frameAtPosition ~= frame then
-					return  -- Another frame with ZIndex 5 is at this position; do nothing
-				end
-	
-				dragging = true
-				objectPosition = Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y)
-	
-				-- Set ZIndex to bring the frame to the front while dragging
-				frame.ZIndex = frame.ZIndex + 1
-	
-				-- Connect InputChanged to handle mouse movement
-				inputChangedConnection = UserInputService.InputChanged:Connect(function(input)
-					if input.UserInputType == Enum.UserInputType.MouseMovement then
-						local newPosition = UDim2.new(0, mouse.X - objectPosition.X, 0, mouse.Y - objectPosition.Y)
-						frame.Position = newPosition
-					end
-				end)
-			end
-		end)
-	
-		UserInputService.InputEnded:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 then
-				dragging = false
-	
-				-- Reset ZIndex to original value
-				frame.ZIndex = originalZIndex
-	
-				-- Update visuals based on mouse position
-				local mousePosition = Vector2.new(mouse.X, mouse.Y)
-				local frameAtPosition = findFrameAtPosition(mousePosition, 5)
-				if not isMouseOverFrame(frame, mousePosition) and not frameAtPosition then
-					frame.ZIndex = 0
-				else
-					frame.ZIndex = 5
-				end
-	
-				-- Disconnect InputChanged once dragging ends
-				if inputChangedConnection then
-					inputChangedConnection:Disconnect()
-				end
-			end
-		end)
-	end
-	
-	-- Example usage:
-	local frameToDrag = script.Parent  -- Replace with the actual frame you want to make draggable
-	makeDraggable(frameToDrag)
-	
-end
-coroutine.wrap(WWFO_fake_script)()
-local function LNORWRC_fake_script() -- baconHubMain.close_5.LocalScript 
-	local script = Instance.new('LocalScript', baconHubMain.close_5)
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
-
-	function Click(mouse)
-	
-	script.Parent.Parent.Visible = false
-	end
-	script.Parent.MouseButton1Down:connect(Click)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-end
-coroutine.wrap(LNORWRC_fake_script)()
-local function YMNP_fake_script() -- baconHubMain.minimize_5.LocalScript 
-	local script = Instance.new('LocalScript', baconHubMain.minimize_5)
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
-
-	function Click(mouse)
-	
-		script.Parent.Parent.Visible = false
-		if script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name).Position.Y.Scale >= 0.077 then
-			script.Parent.Parent.Parent.win10taskbar.windows.Value += 1
-	
-			local icon = script.Parent.Parent.Parent.win10taskbar:WaitForChild(script.Parent.Parent.Name)
-			icon.Visible = true
-			icon.Interactable = true
-			icon.Position = UDim2.new(0.083*script.Parent.Parent.Parent.win10taskbar.windows.Value, 0, 0.073, 0)
-			icon.Image = script.Parent.Parent.icon.Image
-		end
-	end
-	script.Parent.MouseButton1Down:connect(Click)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-end
-coroutine.wrap(YMNP_fake_script)()
-local function SAWJON_fake_script() -- baconHubMain.data_2.main 
+coroutine.wrap(EFSEHMC_fake_script)()
+local function VZFUNLB_fake_script() -- baconHubMain.data_2.main 
 	local script = Instance.new('LocalScript', baconHubMain.data_2)
 	local req = require
 	local require = function(obj)
@@ -3245,4 +2827,4 @@ local function SAWJON_fake_script() -- baconHubMain.data_2.main
 		wait()
 	end
 end
-coroutine.wrap(SAWJON_fake_script)()
+coroutine.wrap(VZFUNLB_fake_script)()
